@@ -1,5 +1,7 @@
 package com.freela.model;
 
+import android.support.annotation.ColorRes;
+
 import java.io.Serializable;
 
 /**
@@ -8,15 +10,13 @@ import java.io.Serializable;
 
 public class Usuario implements Serializable {
     private String email;
-    private String senha;
     private String nome;
     private Localizacao localizacao;
 
     public Usuario() {}
 
-    public  Usuario(String email, String senha, String nome, Localizacao localizacao) {
+    public  Usuario(String email, String nome, Localizacao localizacao) {
         this.email = email;
-        this.senha = senha;
         this.nome = nome;
         this.localizacao = localizacao;
     }
@@ -35,14 +35,6 @@ public class Usuario implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 
     public Localizacao getLocalizacao() {

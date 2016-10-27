@@ -1,92 +1,162 @@
 package com.freela;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.freela.model.Localizacao;
+import com.freela.http.LoginHttp;
+import com.freela.model.Credenciais;
 import com.freela.model.Usuario;
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.appindexing.Thing;
+import com.google.android.gms.common.api.GoogleApiClient;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import static com.freela.R.layout.login;
 
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by Mateus - PC on 2016-10-25.
  */
-public class  LoginActivity extends Activity {
+public class LoginActivity extends Activity {
     private EditText email;
     private EditText senha;
+    private LoginTask loginTask;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
     @Override
-    public void onCreate(Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(login);
 
         email = (EditText) findViewById(R.id.email);
         senha = (EditText) findViewById(R.id.senha);
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
-    public void entrarOnClick(View view){
-        String emailInformado = email.getText().toString();
-        String senhaInformada = senha.getText().toString();
+    public void entrarOnClick(View view) {
 
-        if("freela".equals(emailInformado) &&
-                "123".equals(senhaInformada)){
+        Credenciais credenciais =  new Credenciais(email.getText().toString(), senha.getText().toString());
+
+        if(loginTask == null) {
+
+            if(LoginHttp.temConexao(this)) {
+
+                loginTask = new LoginTask();
+                loginTask.execute(credenciais);
+
+            } else {
+
+                //TODO: exibir mensagem de sem conexão
+
+            }
+
+        } else if(loginTask.getStatus() == AsyncTask.Status.RUNNING) {
+
+            //TODO: mostrar progress
+
+        }
+        /*if ("freela".equals(emailInformado) &&
+                "123".equals(senhaInformada)) {
             startActivity(new Intent(this, DashboardActivity.class));
-        }else{
+        } else {
             String mensagemErro = getString(R.string.erro_autenticacao);
             Toast toast = Toast.makeText(this, mensagemErro, Toast.LENGTH_SHORT);
             toast.show();
+        }*/
+
+
+    }
+
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    public Action getIndexApiAction() {
+        Thing object = new Thing.Builder()
+                .setName("Login Page") // TODO: Define a title for the content shown.
+                // TODO: Make sure this auto-generated URL is correct.
+                .setUrl(Uri.parse("http://[ENTER-YOUR-URL-HERE]"))
+                .build();
+        return new Action.Builder(Action.TYPE_VIEW)
+                .setObject(object)
+                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
+                .build();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        AppIndex.AppIndexApi.start(client, getIndexApiAction());
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        AppIndex.AppIndexApi.end(client, getIndexApiAction());
+        client.disconnect();
+    }
+
+    public void redirecionarDashboard(Usuario usuario){
+
+        startActivity(new Intent(this, DashboardActivity.class));
+
+    }
+
+    public void exibirMensagemErroAutenticacao() {
+        String mensagemErro = getString(R.string.erro_autenticacao);
+        Toast toast = Toast.makeText(this, mensagemErro, Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
+    class LoginTask extends AsyncTask<Credenciais, Void, Usuario> {
+        @Override
+        protected void onPreExecute() {
+
+            //TODO: exibir o progress
+
         }
-    }
-}
 
-private class LoginTask extends AsyncTask<Usuario, Void, Usuario> {
-    private final static String URL = "http://10.0.2.2/fws/api/login";
-    ProgressDialog dialog;
+        @Override
+        protected Usuario doInBackground(Credenciais... credenciais) {
 
-    @Override
-    protected void onPreExecute() {
-        dialog = new ProgressDialog(LoginActivity.this);
-        dialog.show();
-    }
+            return LoginHttp.carregarUsuarioJson(credenciais[0]);
 
-    @Override
-    protected Usuario doInBackground(Usuario usuario) throws JSONException {
-       try {
-           Map<String, String> credenciais = new HashMap<>();
+        }
 
-           credenciais.put("email", usuario.getEmail());
-           credenciais.put("senha", usuario.getSenha());
+        @Override
+        protected void onPostExecute(Usuario usuario) {
 
-           String json = HttpRequest.post(URL).form(credenciais).body();
+            //TODO: esconder progress
 
-           JSONObject retorno = new JSONObject(json);
+            if(usuario == null) {
 
+                exibirMensagemErroAutenticacao();
 
-           usuario = new Usuario(
-            (String)  retorno.get("email"),
-            (String)  retorno.get("senha"),
-            (String) retorno.get("nome"),
-            (Localizacao) retorno.get("localizacao")
-           );
+            } else {
 
-           return usuario;
-       } catch (Exception e) {
-           return null;
-       }
-    }
+                redirecionarDashboard(usuario);
 
-    @Override
-    protected void onPostExecute(Usuario usuario) {
-        dialog.dismiss();
+            }
+
+        }
     }
 }
