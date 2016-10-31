@@ -9,8 +9,14 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.freela.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <Button
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_gravity="bottom"
+        android:onClick="entrarOnClick"
+        android:text="@string/entrar_botao"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/btnEntrar" />
 </RelativeLayout>

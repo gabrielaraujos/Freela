@@ -1,6 +1,8 @@
 package com.freela.model;
 
-import android.support.annotation.ColorRes;
+
+
+import com.freela.Papel;
 
 import java.io.Serializable;
 
@@ -12,6 +14,7 @@ public class Usuario implements Serializable {
     private String email;
     private String nome;
     private Localizacao localizacao;
+    private Papel papel;
 
     public Usuario() {}
 
@@ -43,5 +46,13 @@ public class Usuario implements Serializable {
 
     public void setLocalizacao(Localizacao localizacao) {
         this.localizacao = localizacao;
+    }
+
+    public Papel getPapel() {
+        return papel;
+    }
+
+    public void setPapel(Papel papel) {
+        this.papel = papel;
     }
 }

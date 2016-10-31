@@ -65,5 +65,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:onClick="entrarOnClick"
-        android:text="@string/entrar_botao"/>
+        android:text="@string/entrar_botao"
+        android:id="@+id/btnEntrar" />
 </LinearLayout>

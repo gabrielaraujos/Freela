@@ -5,8 +5,10 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
 
+import com.freela.Papel;
 import com.freela.model.Credenciais;
-import com.freela.model.Localizacao;
+import com.freela.model.Empresa;
+import com.freela.model.Freelancer;
 import com.freela.model.Usuario;
 
 import org.json.JSONException;
@@ -111,11 +113,24 @@ public class LoginHttp {
 
         //TODO: diferenciar Freelancer e Empresa
 
-        Usuario usuario = new Usuario(
-                jsonObject.getString("email"),
-                jsonObject.getString("nome"),
-                (Localizacao) jsonObject.get("localizacao")
-        );
+        Usuario usuario =  (Usuario) jsonObject.get("usuario");
+
+
+        if(usuario.getPapel().equals(Papel.FREELANCER))   {
+
+            usuario = (Freelancer) jsonObject.get("usuario");
+
+        } else if(usuario.getPapel().equals(Papel.EMPRESA)) {
+
+            usuario =  (Empresa) jsonObject.get("usuario");
+
+        } else {
+
+            usuario  = null;
+
+        }
+
+
 
         return usuario;
 

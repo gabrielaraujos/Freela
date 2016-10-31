@@ -6,4 +6,5 @@
     <string name="senha">Senha</string>
     <string name="erro_autenticacao">Email ou Senha inválidos.</string>
     <string name="entrar_botao">Entrar</string>
+    <string name="erro_conexao">Sem conexão</string>
 </resources>

@@ -2,20 +2,16 @@ package com.freela;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.freela.http.LoginHttp;
 import com.freela.model.Credenciais;
 import com.freela.model.Usuario;
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.appindexing.Thing;
-import com.google.android.gms.common.api.GoogleApiClient;
 
 import static com.freela.R.layout.login;
 
@@ -23,15 +19,12 @@ import static com.freela.R.layout.login;
 /**
  * Created by Mateus - PC on 2016-10-25.
  */
-public class LoginActivity extends Activity {
+public class LoginActivity extends Activity implements  View.OnClickListener{
     private EditText email;
     private EditText senha;
+    private Button btnEntrar;
     private LoginTask loginTask;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,12 +33,13 @@ public class LoginActivity extends Activity {
 
         email = (EditText) findViewById(R.id.email);
         senha = (EditText) findViewById(R.id.senha);
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+        btnEntrar = (Button) findViewById(R.id.btnEntrar);
+        btnEntrar.setOnClickListener(this);
+
     }
 
-    public void entrarOnClick(View view) {
+    @Override
+    public void onClick(View view) {
 
         Credenciais credenciais =  new Credenciais(email.getText().toString(), senha.getText().toString());
 
@@ -58,7 +52,7 @@ public class LoginActivity extends Activity {
 
             } else {
 
-                //TODO: exibir mensagem de sem conexão
+                exibirMensagem(getString(R.string.erro_conexao));
 
             }
 
@@ -67,64 +61,24 @@ public class LoginActivity extends Activity {
             //TODO: mostrar progress
 
         }
-        /*if ("freela".equals(emailInformado) &&
-                "123".equals(senhaInformada)) {
-            startActivity(new Intent(this, DashboardActivity.class));
-        } else {
-            String mensagemErro = getString(R.string.erro_autenticacao);
-            Toast toast = Toast.makeText(this, mensagemErro, Toast.LENGTH_SHORT);
-            toast.show();
-        }*/
-
 
     }
 
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    public Action getIndexApiAction() {
-        Thing object = new Thing.Builder()
-                .setName("Login Page") // TODO: Define a title for the content shown.
-                // TODO: Make sure this auto-generated URL is correct.
-                .setUrl(Uri.parse("http://[ENTER-YOUR-URL-HERE]"))
-                .build();
-        return new Action.Builder(Action.TYPE_VIEW)
-                .setObject(object)
-                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
-                .build();
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client.connect();
-        AppIndex.AppIndexApi.start(client, getIndexApiAction());
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        AppIndex.AppIndexApi.end(client, getIndexApiAction());
-        client.disconnect();
-    }
 
     public void redirecionarDashboard(Usuario usuario){
+
+        //TODO: passar parametros usuário
 
         startActivity(new Intent(this, DashboardActivity.class));
 
     }
 
-    public void exibirMensagemErroAutenticacao() {
-        String mensagemErro = getString(R.string.erro_autenticacao);
-        Toast toast = Toast.makeText(this, mensagemErro, Toast.LENGTH_SHORT);
+    public void exibirMensagem(String texto) {
+
+        Toast toast = Toast.makeText(this, texto, Toast.LENGTH_SHORT);
+
         toast.show();
+
     }
 
     class LoginTask extends AsyncTask<Credenciais, Void, Usuario> {
@@ -149,7 +103,7 @@ public class LoginActivity extends Activity {
 
             if(usuario == null) {
 
-                exibirMensagemErroAutenticacao();
+                exibirMensagem(getString(R.string.erro_autenticacao));
 
             } else {
 
