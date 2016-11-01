@@ -1,4 +1,4 @@
-package com.freela;
+package com.freela.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.freela.R;
 import com.freela.model.Usuario;
 
 /**
@@ -19,6 +20,7 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard);
 
@@ -29,6 +31,7 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
         TextView pais = (TextView) findViewById(R.id.pais);
 
         btnSair = (Button) findViewById(R.id.btnSair);
+        btnSair.setOnClickListener(this);
 
         Intent intent = getIntent();
 

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\Gabriel\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\pre-dexed\debug\support-annotations-23.4.0_b05af6acce70a6d05a31dbc03dc6378a2af7d0a2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="8e673cdfadd8f2d98fdb2fda2285c30f6e449782">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-basement-8.4.0_01abc7bcb15682084d61021b34b828712d0c50ab.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-23.4.0_c280a457b493f80cd9ddb1279dd81638a04e16bb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="fef2b3e4b6b1b0e5fe7b69fa137a5fa55a3182ab">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-base-8.4.0_dadf3b92a3b18d0fa9bea709001de34c9530de53.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.4.0_f9644861b0a55b07f89837c53b73084ea4f35a7d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="65d086ee9daaf87b5af62ad24471edafa433354c">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-appindexing-8.4.0_abb6acb96ca759c2a4381fe05b23cc744e644c19.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.4.0_dd037da5b3c6ffe462f276922f5a389f4173606e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="cc51162d18eaacd1cd10c5a74615342cd1d63048">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\pre-dexed\debug\instant-run_389218ba58d090396a99a855f10c70c4d5524080.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-23.4.0_653b96ece635ac0deb1792a738d315d36f94ea76.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\pre-dexed\debug\internal_impl-23.4.0_62401d1a7d0efa70e9dc32d3f1f12f91cd30a567.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="6cebbd16cf6a6e0779cc073764291c1df7c23541">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_705bcce503f80a8bf5811b22f94f528101a5be6c.jar" />
+    </item>
+
+</items>

@@ -1,4 +1,4 @@
-package com.freela;
+package com.freela.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.freela.R;
 import com.freela.http.LoginHttp;
 import com.freela.model.Credenciais;
 import com.freela.model.Localizacao;
@@ -22,18 +23,24 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     private EditText email;
     private EditText senha;
     private Button btnEntrar;
+    private Button btnVoltar;
     private LoginTask loginTask;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
         email = (EditText) findViewById(R.id.email);
         senha = (EditText) findViewById(R.id.senha);
+
         btnEntrar = (Button) findViewById(R.id.btnEntrar);
         btnEntrar.setOnClickListener(this);
+
+        btnVoltar = (Button) findViewById(R.id.btnVoltar);
+        btnVoltar.setOnClickListener(this);
 
     }
 

@@ -15,6 +15,7 @@ public class Usuario implements Serializable {
     private String nome;
     private Localizacao localizacao;
     private Papel papel;
+    private Credenciais credenciais;
 
     public Usuario() {}
 
@@ -54,5 +55,13 @@ public class Usuario implements Serializable {
 
     public void setPapel(Papel papel) {
         this.papel = papel;
+    }
+
+    public Credenciais getCredenciais() {
+        return credenciais;
+    }
+
+    public void setCredenciais(Credenciais credenciais) {
+        this.credenciais = credenciais;
     }
 }
