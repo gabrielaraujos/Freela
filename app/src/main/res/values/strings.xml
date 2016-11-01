@@ -1,10 +1,25 @@
 <resources>
+
+    <!-- Main -->
     <string name="app_name">Freela</string>
+
+    <!-- Entrar -->
     <string name="entrar">Entrar</string>
-    <string name="esquecer_senha">Esqueceu sua senha?</string>
     <string name="email">Endereço de email</string>
+    <string name="esquecer_senha">Esqueceu sua senha?</string>
     <string name="senha">Senha</string>
-    <string name="erro_autenticacao">Email ou Senha inválidos.</string>
+
+    <!-- Dashboard -->
+    <string name="ola">Olá!</string>
+    <string name="sair">Sair</string>
+
+    <!-- Botões -->
+    <string name="voltar_botao">Voltar</string>
     <string name="entrar_botao">Entrar</string>
+
+    <!-- Mensagens -->
+    <!-- Erros -->
+    <string name="erro_autenticacao">Email ou Senha inválidos.</string>
     <string name="erro_conexao">Sem conexão</string>
+
 </resources>

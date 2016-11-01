@@ -13,7 +13,6 @@
         android:text="@string/esquecer_senha"
         android:textSize="20dp"
         android:clickable="true"
-        android:onClick="esquecerSenhaOnClick"
         android:textColor="#333333"
         android:textStyle="bold"
         android:layout_gravity="right"
@@ -64,7 +63,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:onClick="entrarOnClick"
         android:text="@string/entrar_botao"
         android:id="@+id/btnEntrar" />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="@string/voltar_botao"
+        android:id="@+id/btnVoltar" />
 </LinearLayout>

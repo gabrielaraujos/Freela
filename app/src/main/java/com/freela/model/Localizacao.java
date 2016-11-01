@@ -11,6 +11,16 @@ public class Localizacao implements Serializable {
     private String cidade;
     private String estado;
 
+    public Localizacao(String pais, String cidade, String estado){
+
+        this.pais = pais;
+        this.cidade = cidade;
+        this.estado = estado;
+
+    }
+
+    public Localizacao() { }
+
     public String getPais() {
         return pais;
     }

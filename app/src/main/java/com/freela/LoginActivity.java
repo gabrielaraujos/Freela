@@ -11,15 +11,14 @@ import android.widget.Toast;
 
 import com.freela.http.LoginHttp;
 import com.freela.model.Credenciais;
+import com.freela.model.Localizacao;
 import com.freela.model.Usuario;
-
-import static com.freela.R.layout.login;
 
 
 /**
  * Created by Mateus - PC on 2016-10-25.
  */
-public class LoginActivity extends Activity implements  View.OnClickListener{
+public class LoginActivity extends Activity implements View.OnClickListener {
     private EditText email;
     private EditText senha;
     private Button btnEntrar;
@@ -29,7 +28,7 @@ public class LoginActivity extends Activity implements  View.OnClickListener{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(login);
+        setContentView(R.layout.login);
 
         email = (EditText) findViewById(R.id.email);
         senha = (EditText) findViewById(R.id.senha);
@@ -41,11 +40,29 @@ public class LoginActivity extends Activity implements  View.OnClickListener{
     @Override
     public void onClick(View view) {
 
-        Credenciais credenciais =  new Credenciais(email.getText().toString(), senha.getText().toString());
+        switch (view.getId()) {
 
-        if(loginTask == null) {
+            case R.id.btnEntrar:
+                autenticar();
+                break;
 
-            if(LoginHttp.temConexao(this)) {
+            case R.id.btnVoltar:
+                voltar();
+                break;
+        }
+
+
+    }
+
+    private void autenticar() {
+        Credenciais credenciais = new Credenciais(
+                email.getText().toString(),
+                senha.getText().toString()
+        );
+
+        if (loginTask == null) {
+
+            if (LoginHttp.temConexao(this)) {
 
                 loginTask = new LoginTask();
                 loginTask.execute(credenciais);
@@ -56,22 +73,32 @@ public class LoginActivity extends Activity implements  View.OnClickListener{
 
             }
 
-        } else if(loginTask.getStatus() == AsyncTask.Status.RUNNING) {
+        } else if (loginTask.getStatus() == AsyncTask.Status.RUNNING) {
 
             //TODO: mostrar progress
 
         }
+    }
+
+    private void voltar() {
+
+        startActivity(new Intent(this, MainActivity.class));
 
     }
 
 
-    public void redirecionarDashboard(Usuario usuario){
+    public void redirecionarDashboard(Usuario usuario) {
 
         //TODO: passar parametros usuário
 
-        startActivity(new Intent(this, DashboardActivity.class));
+        Intent intent = new Intent(this, DashboardActivity.class);
+
+        intent.putExtra("usuario", usuario);
+
+        startActivity(intent);
 
     }
+
 
     public void exibirMensagem(String texto) {
 
@@ -92,8 +119,9 @@ public class LoginActivity extends Activity implements  View.OnClickListener{
         @Override
         protected Usuario doInBackground(Credenciais... credenciais) {
 
-            return LoginHttp.carregarUsuarioJson(credenciais[0]);
+            //return LoginHttp.carregarUsuarioJson(credenciais[0]);
 
+            return new Usuario("gabriel@email.com", "Gabriel", new Localizacao("Brasil", "Belo Horizonte", "Minas Gerais"));
         }
 
         @Override
@@ -101,7 +129,7 @@ public class LoginActivity extends Activity implements  View.OnClickListener{
 
             //TODO: esconder progress
 
-            if(usuario == null) {
+            if (usuario == null) {
 
                 exibirMensagem(getString(R.string.erro_autenticacao));
 
