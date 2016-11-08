@@ -1,7 +1,6 @@
 package com.freela.http;
 
 import com.freela.Papel;
-import com.freela.model.Credenciais;
 import com.freela.model.Empresa;
 import com.freela.model.Freelancer;
 import com.freela.model.Usuario;
@@ -13,22 +12,26 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 
 /**
- * Created by Gabriel on 27/10/2016.
+ * Created by Gabriel on 08/11/2016.
  */
 
-public class LoginHttp extends Http {
-    public static final String URL_API_LOGIN = "http://10.0.2.2:8080/fws/api/login";
+public class AddUsuarioHttp extends Http {
 
-    public static Usuario carregarUsuarioJson(Credenciais credenciais) {
+    public static String URL_API_ADD = "http://10.0.2.2:8080/fws/api/add";
+
+
+    public static Usuario addUsuario(Usuario usuario) {
 
         try {
 
             JSONObject jsonObject = new JSONObject();
 
-            jsonObject.put("login", credenciais.getLogin());
-            jsonObject.put("senha", credenciais.getSenha());
+            jsonObject.put("email", usuario.getEmail());
+            jsonObject.put("nome", usuario.getNome());
+            jsonObject.put("papel", usuario.getPapel());
+            jsonObject.put("credenciais", usuario.getCredenciais());
 
-            HttpURLConnection conexao = connectar(URL_API_LOGIN, jsonObject);
+            HttpURLConnection conexao = connectar(URL_API_ADD, jsonObject);
 
             int resposta = conexao.getResponseCode();
 

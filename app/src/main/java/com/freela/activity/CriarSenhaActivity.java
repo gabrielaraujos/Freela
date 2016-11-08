@@ -2,13 +2,16 @@ package com.freela.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.freela.R;
 import com.freela.model.Credenciais;
+import com.freela.model.Localizacao;
 import com.freela.model.Usuario;
 
 /**
@@ -16,6 +19,7 @@ import com.freela.model.Usuario;
  */
 
 public class CriarSenhaActivity extends Activity implements View.OnClickListener {
+
     private EditText senha;
     private Usuario usuario;
 
@@ -44,7 +48,6 @@ public class CriarSenhaActivity extends Activity implements View.OnClickListener
             //TODO erro
 
         }
-
 
     }
 
@@ -80,5 +83,58 @@ public class CriarSenhaActivity extends Activity implements View.OnClickListener
 
     }
 
+    public void exibirMensagem(String texto) {
 
+        Toast toast = Toast.makeText(this, texto, Toast.LENGTH_SHORT);
+
+        toast.show();
+
+    }
+
+    public void redirecionarDashboard(Usuario usuario) {
+
+        //TODO: passar parametros usuário
+
+        Intent intent = new Intent(this, DashboardActivity.class);
+
+        intent.putExtra("usuario", usuario);
+
+        startActivity(intent);
+
+    }
+
+
+    class AddUsuarioTask extends AsyncTask<Usuario, Void, Usuario> {
+        @Override
+        protected void onPreExecute() {
+
+            //TODO: exibir o progress
+
+        }
+
+        @Override
+        protected Usuario doInBackground(Usuario... usuarios) {
+
+            //return AddHttp.addUsuario(usuarios[0]);
+
+            return new Usuario("gabriel@email.com", "Gabriel", new Localizacao("Brasil", "Belo Horizonte", "Minas Gerais"));
+        }
+
+        @Override
+        protected void onPostExecute(Usuario usuario) {
+
+            //TODO: esconder progress
+
+            if (usuario == null) {
+
+                exibirMensagem(getString(R.string.erro_autenticacao));
+
+            } else {
+
+                redirecionarDashboard(usuario);
+
+            }
+
+        }
+    }
 }
