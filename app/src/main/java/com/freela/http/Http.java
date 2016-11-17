@@ -44,13 +44,11 @@ public class Http {
 
         } catch (Exception e) {
 
-            throw new Exception("Erro ao conectar");
+            throw new Exception("Erro ao conectar:" + e.getMessage());
 
         }
 
     }
-
-
 
     public static boolean temConexao(Context ctx) {
 

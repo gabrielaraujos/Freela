@@ -70,7 +70,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.0"
-        sha1="cc51162d18eaacd1cd10c5a74615342cd1d63048">
+        sha1="bb2f3ef12e163a1ea9eefe7b5a72d374d277111b">
         <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\pre-dexed\debug\instant-run_389218ba58d090396a99a855f10c70c4d5524080.jar" />
     </item>
     <item
@@ -97,7 +97,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.0"
-        sha1="6cebbd16cf6a6e0779cc073764291c1df7c23541">
+        sha1="ef7506813c8d28435e347dc67ace7a90eb7a8f91">
         <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_705bcce503f80a8bf5811b22f94f528101a5be6c.jar" />
     </item>
 

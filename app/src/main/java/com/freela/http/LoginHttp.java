@@ -17,7 +17,7 @@ import java.net.HttpURLConnection;
  */
 
 public class LoginHttp extends Http {
-    public static final String URL_API_LOGIN = "http://10.0.2.2:8080/fws/api/login";
+    public static final String URL_API_LOGIN = "http://10.0.2.2:8081/fws/api/login";
 
     public static Usuario carregarUsuarioJson(Credenciais credenciais) {
 

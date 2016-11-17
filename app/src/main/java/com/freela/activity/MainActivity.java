@@ -22,20 +22,23 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         btnRegistrar = (Button) findViewById(R.id.btnRegistrarUsr);
         btnRegistrar.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View view) {
+        Intent intent = null;
 
         switch (view.getId()) {
 
             case R.id.btnEntrar:
-                Intent intent = new Intent(view.getContext(), LoginActivity.class);
+                 intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
                 break;
 
             case R.id.btnRegistrarUsr:
-                //TODO: redirecionar para Registro de usuario
+                 intent = new Intent(this, RegistroUsuarioActivity.class);
+                startActivity(intent);
                 break;
 
         }

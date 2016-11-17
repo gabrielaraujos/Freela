@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.freela.R;
 import com.freela.http.LoginHttp;
 import com.freela.model.Credenciais;
+import com.freela.model.Localizacao;
 import com.freela.model.Usuario;
 
 
@@ -125,9 +126,9 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         @Override
         protected Usuario doInBackground(Credenciais... credenciais) {
 
-            return LoginHttp.carregarUsuarioJson(credenciais[0]);
+            //return LoginHttp.carregarUsuarioJson(credenciais[0]);
 
-          //  return new Usuario("gabriel@email.com", "Gabriel", new Localizacao("Brasil", "Belo Horizonte", "Minas Gerais"));
+            return new Usuario("gabriel@email.com", "Gabriel", new Localizacao("Brasil", "Belo Horizonte", "Minas Gerais"));
         }
 
         @Override
