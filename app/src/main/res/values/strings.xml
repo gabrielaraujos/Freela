@@ -35,5 +35,6 @@
     <string name="erro_autenticacao">Email ou Senha inválidos.</string>
     <string name="erro_conexao">Sem conexão</string>
     <string name="title_activity_registro">RegistroActivity</string>
+    <string name="erro_campos_obringatorios">Campos obrigatórios</string>
 
 </resources>

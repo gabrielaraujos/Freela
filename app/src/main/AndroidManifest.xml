@@ -30,7 +30,7 @@
         <activity android:name=".activity.CriarSenhaActivity" />
         <activity android:name=".activity.RegistroUsuarioActivity" />
         <activity android:name=".activity.RegistroUsuarioParte2Activity" />
-        <activity android:name=".activity.RegistrarOportunidadeActivity" />
+        <activity android:name=".activity.RegistroOportunidadeActivity" />
 
         <!--
      ATTENTION: This was auto-generated to add Google Play services to your project for
@@ -41,7 +41,7 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".activity.PerfilActivity" />
-        <activity android:name=".activity.RegistrarOportunidadeActivity"></activity>
+        <activity android:name=".activity.RegistroOportunidadeActivity"></activity>
     </application>
 
 </manifest>

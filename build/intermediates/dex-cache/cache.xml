@@ -21,6 +21,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Gabriel\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.7\751f548c85fa49f330cecbb1875893f971b33c4e\gson-2.7.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\pre-dexed\debug\gson-2.7_ddcaab8acfc8110663d128bea518d8dbee733aa8.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
