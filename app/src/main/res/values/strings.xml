@@ -1,6 +1,6 @@
 <resources>
 
-     <!-- Main -->
+    <!-- Main -->
     <string name="app_name">Freela</string>
     <string name="registrar_usuario">Registrar Usuário</string>
 
@@ -18,12 +18,12 @@
     <string name="voce_e">Você é...</string>
     <string name="freelancer">Freelancer</string>
     <string name="empresa">Empresa</string>
-
-
-    <!-- Registro Freelancer -->
     <string name="label_nome">Qual o seu nome?</string>
     <string name="label_email">E o seu e-mail?</string>
     <string name="label_criar_senha">Crie uma senha</string>
+
+    <!-- Registro Oportunidade -->
+   <string name="btSalvarOportunidade">Salvar</string>
 
     <!-- Botões -->
     <string name="voltar_botao">Voltar</string>
