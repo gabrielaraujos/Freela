@@ -31,6 +31,9 @@
     <string name="desc_oportunidade">Descrição</string>
     <string name="periodo_oportunidade">Periodo</string>
 
+    <!-- Registro Oportunidade -->
+   <string name="btSalvarOportunidade">Salvar</string>
+
     <!-- Botões -->
     <string name="voltar_botao">Voltar</string>
     <string name="entrar_botao">Entrar</string>
@@ -41,5 +44,6 @@
     <string name="erro_autenticacao">Email ou Senha inválidos.</string>
     <string name="erro_conexao">Sem conexão</string>
     <string name="title_activity_registro">RegistroActivity</string>
+    <string name="erro_campos_obringatorios">Campos obrigatórios</string>
 
 </resources>

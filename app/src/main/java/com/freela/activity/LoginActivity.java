@@ -11,9 +11,12 @@ import android.widget.Toast;
 
 import com.freela.R;
 import com.freela.http.LoginHttp;
+import com.freela.manager.SessionManager;
 import com.freela.model.Credenciais;
 import com.freela.model.Localizacao;
 import com.freela.model.Usuario;
+
+import static com.freela.R.layout.login;
 
 
 /**
@@ -24,14 +27,17 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     private EditText senha;
     private Button btnEntrar;
     private Button btnVoltar;
-    private LoginTask loginTask;
 
+    private LoginTask loginTask;
+    private SessionManager sessao;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(login);
+
+        sessao =  new SessionManager(getApplicationContext());
 
         email = (EditText) findViewById(R.id.email);
         senha = (EditText) findViewById(R.id.senha);
@@ -46,7 +52,6 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-
         switch (view.getId()) {
 
             case R.id.btnEntrar:
@@ -56,34 +61,39 @@ public class LoginActivity extends Activity implements View.OnClickListener {
             case R.id.btnVoltar:
                 voltar();
                 break;
+
         }
-
-
     }
 
     private void autenticar() {
-        Credenciais credenciais = new Credenciais(
-                email.getText().toString(),
-                senha.getText().toString()
-        );
+        try {
+            String login = email.getText().toString();
+            String pass = senha.getText().toString();
 
-        if (loginTask == null) {
+            if (login.trim().length() > 0 && pass.trim().length() > 0) {
 
-            if (LoginHttp.temConexao(this)) {
+                Credenciais credenciais = new Credenciais(login, pass);
 
-                loginTask = new LoginTask();
-                loginTask.execute(credenciais);
+                if (loginTask == null) {
+
+                    if (LoginHttp.temConexao(this)) {
+
+                        loginTask = new LoginTask();
+                        loginTask.execute(credenciais);
+
+                    } else {
+                        throw new Exception(getString(R.string.erro_conexao));
+                    }
+
+                } else if (loginTask.getStatus() == AsyncTask.Status.RUNNING) {
+                    //TODO: mostrar progress
+                }
 
             } else {
-
-                exibirMensagem(getString(R.string.erro_conexao));
-
+                throw new Exception(getString(R.string.erro_campos_obringatorios));
             }
-
-        } else if (loginTask.getStatus() == AsyncTask.Status.RUNNING) {
-
-            //TODO: mostrar progress
-
+        } catch (Exception e) {
+            exibirMensagem(e.getMessage());
         }
     }
 
@@ -94,16 +104,18 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     }
 
 
-    public void redirecionarDashboard(Usuario usuario) {
+    public void redirecionarDashboard() {
 
         //TODO: passar parametros usuário
 
-        Intent intent = new Intent(this, DashboardActivity.class);
+        startActivity(new Intent(this, DashboardActivity.class));
+
+       /* Intent intent = new Intent(this, DashboardActivity.class);
 
         intent.putExtra("usuario", usuario);
 
         startActivity(intent);
-
+*/
     }
 
 
@@ -142,7 +154,9 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
             } else {
 
-                redirecionarDashboard(usuario);
+                sessao.criarLoginSession(usuario);
+
+                redirecionarDashboard();
 
             }
 

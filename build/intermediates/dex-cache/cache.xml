@@ -21,6 +21,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Gabriel\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.7\751f548c85fa49f330cecbb1875893f971b33c4e\gson-2.7.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.0"
+        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\pre-dexed\debug\gson-2.7_ddcaab8acfc8110663d128bea518d8dbee733aa8.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -70,7 +79,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.0"
-        sha1="bb2f3ef12e163a1ea9eefe7b5a72d374d277111b">
+        sha1="74b08e80a60ff2703636b5534a2bf2921ac5d85f">
         <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\pre-dexed\debug\instant-run_389218ba58d090396a99a855f10c70c4d5524080.jar" />
     </item>
     <item
@@ -97,7 +106,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.0"
-        sha1="ef7506813c8d28435e347dc67ace7a90eb7a8f91">
+        sha1="f82fb1d432ad82462bcf7039f285fcdd9f6768e5">
         <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_705bcce503f80a8bf5811b22f94f528101a5be6c.jar" />
     </item>
 

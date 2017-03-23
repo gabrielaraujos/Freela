@@ -1,22 +1,30 @@
 package com.freela.activity;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.freela.Papel;
 import com.freela.R;
+import com.freela.manager.SessionManager;
+import com.freela.model.Empresa;
+import com.freela.model.Freelancer;
 import com.freela.model.Usuario;
 
 /**
  * Created by Mateus - PC on 2016-10-25.
  */
 public class DashboardActivity extends Activity implements View.OnClickListener {
-    private Usuario usuario;
+    //private Usuario usuario;
     private Button btnSair;
+    private SessionManager sessao;
+    TextView nome;
+    TextView email;
+    TextView cidade;
+    TextView estado;
+    TextView pais;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -24,16 +32,36 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard);
 
-        TextView nome = (TextView) findViewById(R.id.nome);
-        TextView email = (TextView) findViewById(R.id.email);
-        TextView cidade = (TextView) findViewById(R.id.cidade);
-        TextView estado = (TextView) findViewById(R.id.estado);
-        TextView pais = (TextView) findViewById(R.id.pais);
+         nome = (TextView) findViewById(R.id.nome);
+         email = (TextView) findViewById(R.id.email);
+         cidade = (TextView) findViewById(R.id.cidade);
+         estado = (TextView) findViewById(R.id.estado);
+         pais = (TextView) findViewById(R.id.pais);
 
         btnSair = (Button) findViewById(R.id.btnSair);
         btnSair.setOnClickListener(this);
 
-        Intent intent = getIntent();
+        sessao =  new SessionManager(getApplicationContext());
+
+        sessao.checkLogin();
+
+        if(((Usuario) sessao.getUsuarioLogado()).getPapel().equals(Papel.FREELANCER)) {
+
+            Freelancer freelancer = (Freelancer) sessao.getUsuarioLogado();
+
+            init(freelancer);
+
+        } else {
+
+            Empresa empresa = (Empresa) sessao.getUsuarioLogado();
+
+            init(empresa);
+
+        }
+
+
+
+   /*     Intent intent = getIntent();
 
         if (intent.hasExtra("usuario")) {
 
@@ -51,7 +79,15 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
 
             toast.show();
 
-        }
+        }*/
+
+    }
+
+    private void init(Freelancer freelancer) {
+
+    }
+
+    private void init(Empresa empresa){
 
     }
 
@@ -67,8 +103,6 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
     }
 
     private void sair() {
-        usuario = null;
-
-        startActivity(new Intent(this, MainActivity.class));
+        sessao.logout();
     }
 }

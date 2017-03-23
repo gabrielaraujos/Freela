@@ -103,6 +103,5 @@ public class RegistroOportunidadeActivity extends Activity implements View.OnCli
 
         SimpleDateFormat df = new SimpleDateFormat("EEEE, dd MMMM de yyyy");
         return df.format(c.getTime());
-
     }
 }

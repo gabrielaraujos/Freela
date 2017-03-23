@@ -22,6 +22,7 @@ public class LoginHttp extends Http {
     public static Usuario carregarUsuarioJson(Credenciais credenciais) {
 
         try {
+            Usuario usuario = null;
 
             JSONObject jsonObject = new JSONObject();
 
@@ -38,16 +39,18 @@ public class LoginHttp extends Http {
 
                 JSONObject json = new JSONObject(bytesParaString(is));
 
-                return lerJsonUsuario(json);
+                usuario = lerJsonUsuario(json);
 
             }
+
+            return usuario;
         } catch (Exception e) {
 
             e.printStackTrace();
 
-        }
+            return null;
 
-        return null;
+        }
 
     }
 

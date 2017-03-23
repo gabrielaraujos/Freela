@@ -12,6 +12,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private Button btnEntrar;
     private Button btnRegistrar;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,12 +33,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
         switch (view.getId()) {
 
             case R.id.btnEntrar:
-                 intent = new Intent(this, LoginActivity.class);
+
+                intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
                 break;
 
             case R.id.btnRegistrarUsr:
+
                  intent = new Intent(this, RegistroUsuarioActivity.class);
+
                 startActivity(intent);
                 break;
 
