@@ -1,25 +1,27 @@
 package com.freela.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.freela.Papel;
 import com.freela.R;
-import com.freela.manager.SessionManager;
 import com.freela.model.Empresa;
 import com.freela.model.Freelancer;
 import com.freela.model.Usuario;
+
+//import com.freela.manager.SessionManager;
 
 /**
  * Created by Mateus - PC on 2016-10-25.
  */
 public class DashboardActivity extends Activity implements View.OnClickListener {
-    //private Usuario usuario;
+    private Usuario usuario;
     private Button btnSair;
-    private SessionManager sessao;
+    //private SessionManager sessao;
     TextView nome;
     TextView email;
     TextView cidade;
@@ -41,7 +43,7 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
         btnSair = (Button) findViewById(R.id.btnSair);
         btnSair.setOnClickListener(this);
 
-        sessao =  new SessionManager(getApplicationContext());
+       /* sessao =  new SessionManager(getApplicationContext());
 
         sessao.checkLogin();
 
@@ -57,11 +59,11 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
 
             init(empresa);
 
-        }
+        }*/
 
 
 
-   /*     Intent intent = getIntent();
+        Intent intent = getIntent();
 
         if (intent.hasExtra("usuario")) {
 
@@ -73,13 +75,13 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
             estado.setText(usuario.getLocalizacao().getEstado());
             pais.setText(usuario.getLocalizacao().getPais());
 
-        } else {
+       } else {
 
             Toast toast = Toast.makeText(this, "Erro!!!", Toast.LENGTH_SHORT);
 
             toast.show();
 
-        }*/
+        }
 
     }
 
@@ -103,6 +105,7 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
     }
 
     private void sair() {
-        sessao.logout();
+        startActivity(new Intent(this, MainActivity.class));
+        //sessao.logout();
     }
 }

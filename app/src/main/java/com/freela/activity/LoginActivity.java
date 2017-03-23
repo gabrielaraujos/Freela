@@ -10,13 +10,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.freela.R;
-import com.freela.http.LoginHttp;
-import com.freela.manager.SessionManager;
 import com.freela.model.Credenciais;
 import com.freela.model.Localizacao;
 import com.freela.model.Usuario;
 
 import static com.freela.R.layout.login;
+
+//import com.freela.manager.SessionManager;
 
 
 /**
@@ -27,9 +27,10 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     private EditText senha;
     private Button btnEntrar;
     private Button btnVoltar;
+    private Usuario usuario;
 
     private LoginTask loginTask;
-    private SessionManager sessao;
+    //private SessionManager sessao;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(login);
 
-        sessao =  new SessionManager(getApplicationContext());
+      //  sessao =  new SessionManager(getApplicationContext());
 
         email = (EditText) findViewById(R.id.email);
         senha = (EditText) findViewById(R.id.senha);
@@ -76,14 +77,14 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
                 if (loginTask == null) {
 
-                    if (LoginHttp.temConexao(this)) {
+                  //  if (LoginHttp.temConexao(this)) {
 
                         loginTask = new LoginTask();
                         loginTask.execute(credenciais);
 
-                    } else {
-                        throw new Exception(getString(R.string.erro_conexao));
-                    }
+                  //  } else {
+                  //      throw new Exception(getString(R.string.erro_conexao));
+                  //  }
 
                 } else if (loginTask.getStatus() == AsyncTask.Status.RUNNING) {
                     //TODO: mostrar progress
@@ -108,14 +109,14 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
         //TODO: passar parametros usuário
 
-        startActivity(new Intent(this, DashboardActivity.class));
+        //startActivity(new Intent(this, DashboardActivity.class));
 
-       /* Intent intent = new Intent(this, DashboardActivity.class);
+        Intent intent = new Intent(this, DashboardActivity.class);
 
         intent.putExtra("usuario", usuario);
 
         startActivity(intent);
-*/
+
     }
 
 
@@ -144,17 +145,19 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         }
 
         @Override
-        protected void onPostExecute(Usuario usuario) {
+        protected void onPostExecute(Usuario usr) {
 
             //TODO: esconder progress
 
-            if (usuario == null) {
+            if (usr == null) {
 
                 exibirMensagem(getString(R.string.erro_autenticacao));
 
             } else {
 
-                sessao.criarLoginSession(usuario);
+            //    sessao.criarLoginSession(usuario)
+
+                usuario = usr;
 
                 redirecionarDashboard();
 
