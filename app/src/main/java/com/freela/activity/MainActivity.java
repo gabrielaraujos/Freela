@@ -9,42 +9,32 @@ import android.widget.Button;
 import com.freela.R;
 
 public class MainActivity extends Activity implements View.OnClickListener {
-    private Button btnEntrar;
-    private Button btnRegistrar;
+    private Button btEntrar;
+    private Button btRegistrar;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main);
 
-        btnEntrar = (Button) findViewById(R.id.btnEntrar);
-        btnEntrar.setOnClickListener(this);
+        btEntrar = (Button) findViewById(R.id.main_bt_entrar);
+        btEntrar.setOnClickListener(this);
 
-        btnRegistrar = (Button) findViewById(R.id.btnRegistrarUsr);
-        btnRegistrar.setOnClickListener(this);
-
+        btRegistrar = (Button) findViewById(R.id.main_bt_criar_conta);
+        btRegistrar.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        Intent intent = null;
-
         switch (view.getId()) {
-
-            case R.id.btnEntrar:
-
-                intent = new Intent(this, LoginActivity.class);
-                startActivity(intent);
+            case R.id.main_bt_entrar:
+                startActivity(new Intent(this, LoginActivity.class));
                 break;
 
-            case R.id.btnRegistrarUsr:
-
-                 intent = new Intent(this, RegistroUsuarioActivity.class);
-
-                startActivity(intent);
+            case R.id.main_bt_criar_conta:
+                 startActivity(new Intent(this, CriarContaActivity.class));
                 break;
-
         }
 
     }

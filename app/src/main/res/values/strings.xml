@@ -1,49 +1,41 @@
 <resources>
 
+    <!-- Label Botões -->
+    <string name="bt_empresa">Empresa</string>
+    <string name="bt_entrar">Entrar</string>
+    <string name="bt_esquecer_senha">Esqueceu sua senha?</string>
+    <string name="bt_freelancer">Freelancer</string>
+    <string name="bt_criar_conta">Crie sua conta</string>
+    <string name="bt_salvar">Salvar</string>
+    <string name="bt_voltar">Voltar</string>
+    <string name="bt_proximo">Próximo</string>
+    <string name="bt_sair">Sair</string>
+
+    <!-- Label EditText -->
+    <string name="lb_descricao">Descrição</string>
+    <string name="lb_email">E o seu e-mail?</string>
+    <string name="lb_entrar">Entrar</string>
+    <string name="lb_criar_senha">Crie uma senha</string>
+    <string name="lb_nome">Qual o seu nome?</string>
+    <string name="lb_periodo">Periodo</string>
+    <string name="lb_senha">Senha</string>
+    <string name="lb_titulo">Titulo</string>
+    <string name="lb_voce_e">Você é...</string>
+
+
     <!-- Main -->
     <string name="app_name">Freela</string>
-    <string name="registrar_usuario">Registrar Usuário</string>
 
-    <!-- Telas -->
-    <string name="add_oportunidade">Adicionar Oportunidade</string>
-
-    <!-- Entrar -->
-    <string name="entrar">Entrar</string>
-    <string name="email">Endereço de email</string>
-    <string name="esquecer_senha">Esqueceu sua senha?</string>
-    <string name="senha">Senha</string>
-
-    <!-- Dashboard -->
-    <string name="ola">Olá!</string>
-    <string name="sair">Sair</string>
-
-    <!-- Registro Usuário -->
-    <string name="voce_e">Você é...</string>
-    <string name="freelancer">Freelancer</string>
-    <string name="empresa">Empresa</string>
-    <string name="label_nome">Qual o seu nome?</string>
-    <string name="label_email">E o seu e-mail?</string>
-    <string name="label_criar_senha">Crie uma senha</string>
-    <string name="salvar_botao">Salvar</string>
-
-    <!-- Registro Oportunidade -->
-    <string name="titulo_oportunidade">Titulo</string>
-    <string name="desc_oportunidade">Descrição</string>
-    <string name="periodo_oportunidade">Periodo</string>
-
-    <!-- Registro Oportunidade -->
-   <string name="btSalvarOportunidade">Salvar</string>
-
-    <!-- Botões -->
-    <string name="voltar_botao">Voltar</string>
-    <string name="entrar_botao">Entrar</string>
-    <string name="proximo_botao">Próximo</string>
-
-    <!-- Mensagens -->
-    <!-- Erros -->
+    <!-- Mensagem de Erro -->
     <string name="erro_autenticacao">Email ou Senha inválidos.</string>
-    <string name="erro_conexao">Sem conexão</string>
-    <string name="title_activity_registro">RegistroActivity</string>
     <string name="erro_campos_obringatorios">Campos obrigatórios</string>
+    <string name="erro_conexao">Sem conexão</string>
 
+    <!-- TextView -->
+    <string name="tv_ola">Olá!</string>
+    <string name="tv_email">E-mail</string>
+
+    <!-- Título de Telas -->
+    <string name="title_add_oportunidade">Adicionar Oportunidade</string>
+    <string name="title_criar_conta">Registrar Usuário</string>
 </resources>

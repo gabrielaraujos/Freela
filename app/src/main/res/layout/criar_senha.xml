@@ -10,25 +10,25 @@
         android:layout_height="wrap_content"
         android:layout_gravity="left"
         android:layout_margin="20dp"
-        android:text="@string/voltar_botao"
-        android:id="@+id/btnVoltar" />
+        android:text="@string/bt_voltar"
+        android:id="@+id/senha_bt_voltar" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
-        android:text="@string/label_criar_senha"
+        android:text="@string/lb_criar_senha"
         android:textSize="30dp"
         android:textColor="#333333"
-        android:id="@+id/label_criar_senha"/>
+        android:id="@+id/senha_lb_criar_senha"/>
 
     <EditText
-        android:id="@+id/campo_senha"
+        android:id="@+id/senha_et_senha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
-        android:layout_below="@+id/label_criar_senha" >
+        android:layout_below="@+id/senha_lb_criar_senha" >
         <requestFocus />
     </EditText>
 
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:layout_marginTop="100dp"
-        android:text="@string/proximo_botao"
-        android:id="@+id/btnProximo" />
+        android:text="@string/bt_proximo"
+        android:id="@+id/senha_bt_proximo" />
 
 </LinearLayout>

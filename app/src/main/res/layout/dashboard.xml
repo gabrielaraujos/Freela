@@ -11,25 +11,15 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:layout_margin="20dp"
-        android:text="@string/sair"
-        android:id="@+id/btnSair" />
+        android:text="@string/bt_sair"
+        android:id="@+id/dashboard_bt_sair" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
-        android:text="@string/ola"
-        android:textSize="50dp"
-        android:textColor="#333333" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:text="Gabriel"
-        android:id="@+id/nome"
+        android:text="@string/tv_ola"
         android:textSize="50dp"
         android:textColor="#333333" />
 
@@ -39,7 +29,17 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:text=""
-        android:id="@+id/email"
+        android:id="@+id/dashboard_tv_nome"
+        android:textSize="50dp"
+        android:textColor="#333333" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:text=""
+        android:id="@+id/dashboard_tv_email"
         android:textSize="20dp"
         android:textColor="#333333" />
 
@@ -49,7 +49,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:text=""
-        android:id="@+id/cidade"
+        android:id="@+id/dashboard_tv_cidade"
         android:textSize="20dp"
         android:textColor="#333333" />
 
@@ -59,7 +59,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:text=""
-        android:id="@+id/estado"
+        android:id="@+id/dashboard_tv_estado"
         android:textSize="20dp"
         android:textColor="#333333" />
 
@@ -69,7 +69,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:text=""
-        android:id="@+id/pais"
+        android:id="@+id/dashboard_tv_pais"
         android:textSize="20dp"
         android:textColor="#333333" />
 

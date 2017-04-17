@@ -23,10 +23,10 @@ import static com.freela.R.layout.login;
  * Created by Mateus - PC on 2016-10-25.
  */
 public class LoginActivity extends Activity implements View.OnClickListener {
-    private EditText email;
-    private EditText senha;
-    private Button btnEntrar;
-    private Button btnVoltar;
+    private EditText etEmail;
+    private EditText etSenha;
+    private Button btEntrar;
+    private Button btVoltar;
     private Usuario usuario;
 
     private LoginTask loginTask;
@@ -36,18 +36,18 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(login);
+        setContentView(R.layout.login);
 
       //  sessao =  new SessionManager(getApplicationContext());
 
-        email = (EditText) findViewById(R.id.email);
-        senha = (EditText) findViewById(R.id.senha);
+        etEmail = (EditText) findViewById(R.id.email);
+        etSenha = (EditText) findViewById(R.id.senha);
 
-        btnEntrar = (Button) findViewById(R.id.btnEntrar);
-        btnEntrar.setOnClickListener(this);
+        btEntrar = (Button) findViewById(R.id.btnEntrar);
+        btEntrar.setOnClickListener(this);
 
-        btnVoltar = (Button) findViewById(R.id.btnVoltar);
-        btnVoltar.setOnClickListener(this);
+        btVoltar = (Button) findViewById(R.id.btnVoltar);
+        btVoltar.setOnClickListener(this);
 
     }
 
@@ -68,8 +68,8 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
     private void autenticar() {
         try {
-            String login = email.getText().toString();
-            String pass = senha.getText().toString();
+            String login = etEmail.getText().toString();
+            String pass = etSenha.getText().toString();
 
             if (login.trim().length() > 0 && pass.trim().length() > 0) {
 
@@ -141,7 +141,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
             //return LoginHttp.carregarUsuarioJson(credenciais[0]);
 
-            return new Usuario("gabriel@email.com", "Gabriel", new Localizacao("Brasil", "Belo Horizonte", "Minas Gerais"));
+            return new Usuario("gabriel@tvEmail.com", "Gabriel", new Localizacao("Brasil", "Belo Horizonte", "Minas Gerais"));
         }
 
         @Override

@@ -20,13 +20,13 @@ import com.freela.model.Usuario;
  */
 public class DashboardActivity extends Activity implements View.OnClickListener {
     private Usuario usuario;
-    private Button btnSair;
+    private Button btSair;
     //private SessionManager sessao;
-    TextView nome;
-    TextView email;
-    TextView cidade;
-    TextView estado;
-    TextView pais;
+    TextView tvNome;
+    TextView tvEmail;
+    TextView tvCidade;
+    TextView tvEstado;
+    TextView tvPais;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,14 +34,14 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard);
 
-         nome = (TextView) findViewById(R.id.nome);
-         email = (TextView) findViewById(R.id.email);
-         cidade = (TextView) findViewById(R.id.cidade);
-         estado = (TextView) findViewById(R.id.estado);
-         pais = (TextView) findViewById(R.id.pais);
+        tvNome = (TextView) findViewById(R.id.dashboard_tv_nome);
+        tvEmail = (TextView) findViewById(R.id.dashboard_tv_email);
+        tvCidade = (TextView) findViewById(R.id.dashboard_tv_cidade);
+        tvEstado = (TextView) findViewById(R.id.dashboard_tv_estado);
+        tvPais = (TextView) findViewById(R.id.dashboard_tv_pais);
 
-        btnSair = (Button) findViewById(R.id.btnSair);
-        btnSair.setOnClickListener(this);
+        btSair = (Button) findViewById(R.id.dashboard_bt_sair);
+        btSair.setOnClickListener(this);
 
        /* sessao =  new SessionManager(getApplicationContext());
 
@@ -61,26 +61,19 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
 
         }*/
 
-
-
         Intent intent = getIntent();
 
         if (intent.hasExtra("usuario")) {
-
             usuario = (Usuario) intent.getSerializableExtra("usuario");
 
-            nome.setText(usuario.getNome());
-            email.setText(usuario.getEmail());
-            cidade.setText(usuario.getLocalizacao().getCidade());
-            estado.setText(usuario.getLocalizacao().getEstado());
-            pais.setText(usuario.getLocalizacao().getPais());
-
+            tvNome.setText(usuario.getNome());
+            tvEmail.setText(usuario.getEmail());
+            tvCidade.setText(usuario.getLocalizacao().getCidade());
+            tvEstado.setText(usuario.getLocalizacao().getEstado());
+            tvPais.setText(usuario.getLocalizacao().getPais());
        } else {
-
             Toast toast = Toast.makeText(this, "Erro!!!", Toast.LENGTH_SHORT);
-
             toast.show();
-
         }
 
     }
@@ -96,11 +89,9 @@ public class DashboardActivity extends Activity implements View.OnClickListener 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-
-            case R.id.btnSair:
+            case R.id.dashboard_bt_sair:
                 sair();
                 break;
-
         }
     }
 

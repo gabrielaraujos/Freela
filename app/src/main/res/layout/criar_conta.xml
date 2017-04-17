@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_margin="20dp"
+        android:text="@string/bt_voltar"
+        android:id="@+id/conta_bt_voltar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="@string/lb_voce_e"
+        android:textSize="50dp"
+        android:textColor="#333333"
+        android:id="@+id/conta_tv_voce_e"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/bt_empresa"
+        android:id="@+id/conta_bt_empresa"
+        android:layout_marginTop="100dp"
+        android:layout_below="@+id/conta_tv_voce_e" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/bt_freelancer"
+        android:id="@+id/btnFreelancer"
+        android:layout_below="@+id/conta_bt_empresa"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp" />
+
+</LinearLayout>

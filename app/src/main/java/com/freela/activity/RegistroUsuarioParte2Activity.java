@@ -74,7 +74,7 @@ public class RegistroUsuarioParte2Activity extends Activity implements View.OnCl
 
     private void voltar() {
 
-        startActivity(new Intent(this, RegistroUsuarioActivity.class));
+        startActivity(new Intent(this, CriarContaActivity.class));
 
     }
 }
