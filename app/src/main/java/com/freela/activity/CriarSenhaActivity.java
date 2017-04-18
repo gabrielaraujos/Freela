@@ -72,7 +72,7 @@ public class CriarSenhaActivity extends Activity implements View.OnClickListener
     }
 
     private void voltar(){
-        startActivity(new Intent(this, RegistroUsuarioParte2Activity.class));
+        startActivity(new Intent(this, CriarContaPt2Activity.class));
     }
 
     public void exibirMensagem(String texto) {

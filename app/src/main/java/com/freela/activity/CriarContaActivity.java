@@ -54,7 +54,7 @@ public class CriarContaActivity extends Activity implements View.OnClickListener
     }
 
     private void proximo(Usuario usuario) {
-        Intent intent = new Intent(this, RegistroUsuarioParte2Activity.class);
+        Intent intent = new Intent(this, CriarContaPt2Activity.class);
         intent.putExtra("usuario", usuario);
 
         startActivity(intent);

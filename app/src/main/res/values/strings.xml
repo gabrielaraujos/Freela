@@ -1,6 +1,7 @@
 <resources>
 
     <!-- Label Botões -->
+    <string name="bt_add_oportunidade">Add Oportunidade</string>
     <string name="bt_empresa">Empresa</string>
     <string name="bt_entrar">Entrar</string>
     <string name="bt_esquecer_senha">Esqueceu sua senha?</string>

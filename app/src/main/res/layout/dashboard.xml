@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:gravity="left"
     android:orientation="vertical"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+    android:weightSum="1">
 
     <Button
         android:layout_width="wrap_content"
@@ -72,5 +73,16 @@
         android:id="@+id/dashboard_tv_pais"
         android:textSize="20dp"
         android:textColor="#333333" />
+
+    <Button
+        android:id="@+id/dashboard_bt_add_oportunidade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginTop="20dp"
+        android:text="@string/bt_add_oportunidade" />
+
+
+
 
 </LinearLayout>

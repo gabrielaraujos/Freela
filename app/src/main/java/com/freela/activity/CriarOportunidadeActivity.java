@@ -48,7 +48,6 @@ public class CriarOportunidadeActivity extends Activity implements View.OnClickL
 
         switch (view.getId()) {
             case R.id.oportunidade_dt_inicial:
-
                 DatePickerDialog dpd1 = new DatePickerDialog(this,
                         new DatePickerDialog.OnDateSetListener() {
 
@@ -56,9 +55,9 @@ public class CriarOportunidadeActivity extends Activity implements View.OnClickL
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
 
-                                String dt = formatarData(year, monthOfYear, dayOfMonth);
+                                String dtIni = formatarData(year, monthOfYear, dayOfMonth);
 
-                                dtInicial.setText(dt);
+                                dtInicial.setText(dtIni);
 
                             }
                         }, ano, mes, dia);
@@ -75,9 +74,9 @@ public class CriarOportunidadeActivity extends Activity implements View.OnClickL
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
 
-                                String dt = formatarData(year, monthOfYear, dayOfMonth);
+                                String dtFim = formatarData(year, monthOfYear, dayOfMonth);
 
-                                dtInicial.setText(dt);
+                                dtFinal.setText(dtFim);
 
                             }
                         }, ano, mes, dia);

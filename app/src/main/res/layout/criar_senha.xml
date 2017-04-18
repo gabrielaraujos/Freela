@@ -27,7 +27,7 @@
         android:id="@+id/senha_et_senha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:layout_below="@+id/senha_lb_criar_senha" >
         <requestFocus />
     </EditText>

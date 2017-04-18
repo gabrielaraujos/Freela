@@ -14,8 +14,6 @@ import com.freela.model.Credenciais;
 import com.freela.model.Localizacao;
 import com.freela.model.Usuario;
 
-import static com.freela.R.layout.login;
-
 //import com.freela.manager.SessionManager;
 
 
@@ -141,7 +139,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
             //return LoginHttp.carregarUsuarioJson(credenciais[0]);
 
-            return new Usuario("gabriel@tvEmail.com", "Gabriel", new Localizacao("Brasil", "Belo Horizonte", "Minas Gerais"));
+            return new Usuario("gabriel@email.com", "Gabriel", new Localizacao("Brasil", "Fortaleza", "Ceará"));
         }
 
         @Override
