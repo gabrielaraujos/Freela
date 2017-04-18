@@ -16,7 +16,7 @@ import java.util.Calendar;
 
 /**
  * Created by Gabriel on 16/11/2016.
- */
+
 
 public class RegistroOportunidadeActivity_old extends Activity implements View.OnClickListener {
 
@@ -34,8 +34,6 @@ public class RegistroOportunidadeActivity_old extends Activity implements View.O
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.registro_oportunidade);
-
         titulo = (EditText) findViewById(R.id.titulo_opotunidade);
         descricao = (EditText) findViewById(R.id.desc_oportunidade);
 
@@ -112,7 +110,7 @@ public class RegistroOportunidadeActivity_old extends Activity implements View.O
 
     }
 
-/*    public static class DatePickerFragment extends DialogFragment
+    public static class DatePickerFragment extends DialogFragment
             implements DatePickerDialog.OnDateSetListener {
 
         @Override
@@ -141,5 +139,6 @@ public class RegistroOportunidadeActivity_old extends Activity implements View.O
 
         }
 
-    }*/
+    }
 }
+        */

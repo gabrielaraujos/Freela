@@ -19,7 +19,7 @@ public class CriarContaActivity extends Activity implements View.OnClickListener
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.registro_usuario);
+        setContentView(R.layout.criar_conta);
 
         btEmpresa = (Button) findViewById(R.id.conta_bt_empresa);
         btEmpresa.setOnClickListener(this);

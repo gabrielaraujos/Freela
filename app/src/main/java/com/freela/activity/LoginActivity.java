@@ -40,13 +40,13 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
       //  sessao =  new SessionManager(getApplicationContext());
 
-        etEmail = (EditText) findViewById(R.id.email);
-        etSenha = (EditText) findViewById(R.id.senha);
+        etEmail = (EditText) findViewById(R.id.login_et_email);
+        etSenha = (EditText) findViewById(R.id.login_et_senha);
 
-        btEntrar = (Button) findViewById(R.id.btnEntrar);
+        btEntrar = (Button) findViewById(R.id.login_bt_entrar);
         btEntrar.setOnClickListener(this);
 
-        btVoltar = (Button) findViewById(R.id.btnVoltar);
+        btVoltar = (Button) findViewById(R.id.login_bt_voltar);
         btVoltar.setOnClickListener(this);
 
     }
@@ -55,11 +55,11 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
 
-            case R.id.btnEntrar:
+            case R.id.login_bt_entrar:
                 autenticar();
                 break;
 
-            case R.id.btnVoltar:
+            case R.id.login_bt_voltar:
                 voltar();
                 break;
 
