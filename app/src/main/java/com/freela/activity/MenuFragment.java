@@ -1,8 +1,9 @@
 package com.freela.activity;
 
-import android.app.Fragment;
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,10 +11,10 @@ import android.widget.TextView;
 
 import com.freela.R;
 
-/**
- * Created by Gabriel on 09/05/2017.
- */
 
+/**
+ * Fragment class for each nav menu item
+ */
 public class MenuFragment extends Fragment {
     private static final String ARG_TEXT = "arg_text";
     private static final String ARG_COLOR = "arg_color";
@@ -70,3 +71,4 @@ public class MenuFragment extends Fragment {
         outState.putInt(ARG_COLOR, mColor);
         super.onSaveInstanceState(outState);
     }
+}

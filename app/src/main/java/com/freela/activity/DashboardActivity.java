@@ -13,11 +13,6 @@ import android.view.MenuItem;
 
 import com.freela.R;
 
-//import com.freela.manager.SessionManager;
-
-/**
- * Created by Mateus - PC on 2016-10-25.
- */
 public class DashboardActivity extends AppCompatActivity {
     private static final String SELECTED_ITEM = "arg_selected_item";
 
@@ -70,15 +65,15 @@ public class DashboardActivity extends AppCompatActivity {
         // init corresponding fragment
         switch (item.getItemId()) {
             case R.id.menu_home:
-                frag = MenuFragment.newInstance(getString("Inicio"),
+                frag = MenuFragment.newInstance(getString(R.string.text_home),
                         getColorFromRes(R.color.color_home));
                 break;
             case R.id.menu_notifications:
-                frag = MenuFragment.newInstance(getString("Busca"),
+                frag = MenuFragment.newInstance(getString(R.string.text_notifications),
                         getColorFromRes(R.color.color_notifications));
                 break;
             case R.id.menu_search:
-                frag = MenuFragment.newInstance(getString("Perfil"),
+                frag = MenuFragment.newInstance(getString(R.string.text_search),
                         getColorFromRes(R.color.color_search));
                 break;
         }
@@ -111,7 +106,7 @@ public class DashboardActivity extends AppCompatActivity {
     private int getColorFromRes(@ColorRes int resId) {
         return ContextCompat.getColor(this, resId);
     }
-
+}
 
 //    private Usuario usuario;
 //    private Button btSair;
@@ -201,4 +196,3 @@ public class DashboardActivity extends AppCompatActivity {
 //    private void addOportundidade() {
 //        startActivity(new Intent(this, CriarOportunidadeActivity.class));
 //    }
-}

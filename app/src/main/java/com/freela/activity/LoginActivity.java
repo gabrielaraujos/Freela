@@ -111,7 +111,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
         Intent intent = new Intent(this, DashboardActivity.class);
 
-        intent.putExtra("usuario", usuario);
+       // intent.putExtra("usuario", usuario);
 
         startActivity(intent);
 

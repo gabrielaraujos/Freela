@@ -2,6 +2,24 @@
 <items version="2" >
 
     <item
+        is-multidex="true"
+        jar="C:\Users\Gabriel\.android\build-cache\88e9c90a20ee336a1716bdae7b4ab6e1d4f3578f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8e673cdfadd8f2d98fdb2fda2285c30f6e449782">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1fc42b26c9c846760c7ddcb325bf7d9d570150c0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Gabriel\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.7\751f548c85fa49f330cecbb1875893f971b33c4e\gson-2.7.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.7_ddcaab8acfc8110663d128bea518d8dbee733aa8\classes.dex" />
+    </item>
+    <item
         is-multidex="false"
         jar="C:\Users\Gabriel\AppData\Local\Android\Sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
         jumboMode="false"
@@ -9,6 +27,105 @@
         revision="25.0.0"
         sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
         <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.2_eac1f4c86b4b856a712f7407d8e318993fc37c6b.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Gabriel\AppData\Local\Android\Sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.0.2_eac1f4c86b4b856a712f7407d8e318993fc37c6b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Gabriel\.android\build-cache\1561b6cfa6fe1170541cf7f6f368bd20575cfeaf\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8bc45ce1f63d1a391fd38b32a201be5a42f9c95d">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ebf339cd9d72d7a1922158d87489ed0786862c0d\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Gabriel\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.7\751f548c85fa49f330cecbb1875893f971b33c4e\gson-2.7.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\pre-dexed\debug\gson-2.7_ddcaab8acfc8110663d128bea518d8dbee733aa8.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Gabriel\.android\build-cache\f9d9c1db2f6108eb29e4db89b72dcbe8af6c3a12\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="75b1f366ff0bbc78f8b1f7cf0dc82e7c53afef6a">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0feb4b046bb2e76e522858de544eada540f9d908\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Gabriel\.android\build-cache\f9d9c1db2f6108eb29e4db89b72dcbe8af6c3a12\output\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f2e3b9bc1ec25f652e8007ce7774c991e38f6a00">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_762dfbd23955984c53095fbc10ad156e9d28d977\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Gabriel\.android\build-cache\52d76ce1953daff3853beaf6d530475f3ded07e3\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="07daa0b6e1d455c82a38422ffe287c18823d339a">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_45fc122b9ea2b84ec395a703fcc9d311f851abcc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Gabriel\.android\build-cache\dd4ef9e9e496d4a22babc4421d79137dba0b31b2\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_12f143298ee077f4eb9917fb18b0410dabef5386\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Gabriel\.android\build-cache\fcb917d0ea6ad2c12bcba6110534c5e244c00467\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c086539853ff9d7d068b56c59e1f797a5c99f0d8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Gabriel\.android\build-cache\e8b8af9a8d6897bbfe135077b1f4d674f5eda83f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="76fb65a4b41ea42dab8a1310ed772a2420c96b52">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9c43853d53d0134c9b5e52ed4faa0f8090e70ad8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Gabriel\.android\build-cache\74930ff262bed2d765e4c64629653d2b5cb2cacf\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0c6d948e6cb9ea6f535d175fb61ba2930719c0e9">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_77c0cc3a49b94f459c6ef841fef4778d743a2501\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Gabriel\.android\build-cache\52d76ce1953daff3853beaf6d530475f3ded07e3\output\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ee5faf4dee5b6a4364bf51587871047dde7c703a">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_26fdf627d551ca756f9498f6ab48c92bbe49264c\classes.dex" />
     </item>
     <item
         is-multidex="false"
@@ -20,13 +137,130 @@
         <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\pre-dexed\debug\classes_c086539853ff9d7d068b56c59e1f797a5c99f0d8.jar" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Users\Gabriel\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.7\751f548c85fa49f330cecbb1875893f971b33c4e\gson-2.7.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="C:\Users\Gabriel\.android\build-cache\6486de972f553ab339325fdea90c3519aeefa65c\output\jars\classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
-        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\pre-dexed\debug\gson-2.7_ddcaab8acfc8110663d128bea518d8dbee733aa8.jar" />
+        sha1="d29714cc76b38157e3cbd034c66e1ec808eb4c19">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_74fb521c31ef2989fa01d90159e48cb358954129\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Gabriel\.android\build-cache\53291e3bd127e5ce41c16b5e583bba4f495af384\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="65d086ee9daaf87b5af62ad24471edafa433354c">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_640d65437db82daf4f3a4d28cf7b39b0b5810dcf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Gabriel\.android\build-cache\36ff05f2e4e25935b6c6a2d759cbfb70d3527c0f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="53a420cd4f49274db6bd43475f8006ba67ef6bbd">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8d78622155ec5b1461d3c6c939f154a664f1e744\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Gabriel\.android\build-cache\3caef7e961415f9b1c9af147764b7d539255afa4\output\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_3966aef354242e95fca572c4c1543c9cc9d60b13\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Gabriel\.android\build-cache\e8b8af9a8d6897bbfe135077b1f4d674f5eda83f\output\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="665d21a8a069c96b4d9e8b434f5096d865b4e261">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_5e2e324a6fe741f732b1e01d2b773d0a8a0b4098\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Gabriel\.android\build-cache\9433c15824ea83484181dfc7091e58a64d2ce02f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="26384be22ddc74cfe197ebda9edbc7d1fd8bd537">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ed7277efed48e2dad78e8df2e9c642ab11deb913\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Gabriel\.android\build-cache\18c5fcd2fe122fd8b6334d1a411388031b1587fb\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4ccbcda5c72027c7f7c14be9ff8640d9cb0d8da0">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4d00557539c203e9fc9db2ab4c47ae68741a4001\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Gabriel\.android\build-cache\3caef7e961415f9b1c9af147764b7d539255afa4\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="26674000177e45447a0326a6ad84612761199a13">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_91ae48fedd4e6ab551d39063025ce1056bbf437f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_389218ba58d090396a99a855f10c70c4d5524080\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Gabriel\.android\build-cache\3151a7b11ecaa744b61cfec7262be3ad2ddca7eb\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="fef2b3e4b6b1b0e5fe7b69fa137a5fa55a3182ab">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_bb73939b46609edd5812b7690207e2c65a5aac8e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Gabriel\.android\build-cache\18c5fcd2fe122fd8b6334d1a411388031b1587fb\output\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3b61a70884adaf0be3fc06c70c801e3e6df13133">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_062f70f58ecad6bd264a11d4732b516dbcbc6b8d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0f474bdb9724c392e44961457dec187c48b81d3e">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_705bcce503f80a8bf5811b22f94f528101a5be6c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Gabriel\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\25.0.0\support-annotations-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a22d2cc94da87b254451fa8ed28afc30b4653773">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.0.0_d1182b06456cb7c13463536b9cd0728e6dbb56b8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Gabriel\.android\build-cache\043a89f6e8844986809406a6db4e50994e8cff02\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5e497d60f0cb6ce87c458ac5420a46d0fed49bd0">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_38dc8914e2ce31a289eda977f4fd5bbb3083547e\classes.dex" />
     </item>
 
 </items>
