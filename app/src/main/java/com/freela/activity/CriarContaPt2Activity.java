@@ -3,6 +3,7 @@ package com.freela.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,7 +15,7 @@ import com.freela.model.Usuario;
  * Created by Gabriel on 01/11/2016.
  */
 
-public class CriarContaPt2Activity extends Activity implements View.OnClickListener {
+public class CriarContaPt2Activity extends AppCompatActivity implements View.OnClickListener {
     private EditText etNome;
     private EditText etEmail;
     private Button btProximo;

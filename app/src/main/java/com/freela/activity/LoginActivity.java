@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,7 +21,7 @@ import com.freela.model.Usuario;
 /**
  * Created by Mateus - PC on 2016-10-25.
  */
-public class LoginActivity extends Activity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText etEmail;
     private EditText etSenha;
     private Button btEntrar;

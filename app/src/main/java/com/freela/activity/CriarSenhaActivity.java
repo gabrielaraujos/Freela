@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,7 +19,7 @@ import com.freela.model.Usuario;
  * Created by Gabriel on 01/11/2016.
  */
 
-public class CriarSenhaActivity extends Activity implements View.OnClickListener {
+public class CriarSenhaActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText etSenha;
     private Button btVoltar;
     private Button btProximo;
