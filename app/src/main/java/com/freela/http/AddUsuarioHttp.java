@@ -1,6 +1,6 @@
 package com.freela.http;
 
-import com.freela.Papel;
+import com.freela.model.Papel;
 import com.freela.model.Empresa;
 import com.freela.model.Freelancer;
 import com.freela.model.Usuario;

@@ -23,6 +23,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
-        android:layout_alignParentBottom="true"
-        design:menu="@menu/bottom_nav_items" />
+        android:layout_alignParentBottom="true" />
 </LinearLayout>

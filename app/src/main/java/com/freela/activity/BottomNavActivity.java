@@ -1,20 +1,19 @@
 package com.freela.activity;
 
-import android.os.PersistableBundle;
-import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.freela.R;
+import com.freela.fragment.DashboardFragment;
+import com.freela.fragment.OportunidadeFragment;
+import com.freela.fragment.PerfilFragment;
+import com.freela.fragment.PesquisaFragment;
 
 public class BottomNavActivity extends AppCompatActivity {
     private static final String TAG = BottomNavActivity.class.getSimpleName();
@@ -39,9 +38,21 @@ public class BottomNavActivity extends AppCompatActivity {
                     case R.id.menu_home:
                         fragment = new DashboardFragment();
                         break;
+                    case R.id.menu_oportunidade:
+                        fragment = new OportunidadeFragment();
+                        break;
+                    case R.id.menu_pesquisa:
+                        fragment = new PesquisaFragment();
+                        break;
+                    case R.id.menu_perfil:
+                        fragment = new PerfilFragment();
+                        break;
+                    default:
+                        fragment = new DashboardFragment();
+                        break;
                 }
                 final FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.replace(R.id.bottom_container, fragment);
+                transaction.replace(R.id.bottom_container, fragment).commit();
                 return true;
             }
         });

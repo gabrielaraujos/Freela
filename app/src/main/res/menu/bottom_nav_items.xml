@@ -9,16 +9,23 @@
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/menu_search"
+        android:id="@+id/menu_pesquisa"
         android:enabled="true"
-        android:title="@string/menu_search"
+        android:title="@string/menu_pesquisa"
         android:icon="@drawable/ic_search_black"
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/menu_notifications"
+        android:id="@+id/menu_oportunidade"
         android:enabled="true"
-        android:title="@string/menu_notifications"
-        android:icon="@drawable/ic_notifications_black"
+        android:title="@string/menu_oportunidade"
+        android:icon="@drawable/ic_oportunidade"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/menu_perfil"
+        android:enabled="true"
+        android:title="@string/menu_perfil"
+        android:icon="@drawable/ic_perfil"
         app:showAsAction="ifRoom"/>
 </menu>

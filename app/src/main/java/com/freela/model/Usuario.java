@@ -2,8 +2,6 @@ package com.freela.model;
 
 
 
-import com.freela.Papel;
-
 import java.io.Serializable;
 
 /**
