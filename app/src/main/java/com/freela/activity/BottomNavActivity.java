@@ -1,5 +1,6 @@
 package com.freela.activity;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,7 @@ import com.freela.fragment.DashboardFragment;
 import com.freela.fragment.OportunidadeFragment;
 import com.freela.fragment.PerfilFragment;
 import com.freela.fragment.PesquisaFragment;
+import com.freela.model.Usuario;
 
 public class BottomNavActivity extends AppCompatActivity {
     private static final String TAG = BottomNavActivity.class.getSimpleName();
@@ -26,6 +28,8 @@ public class BottomNavActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bottom_nav);
 
+        final Intent intent = getIntent();
+
         bottomNavigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         bottomNavigation.inflateMenu(R.menu.bottom_nav_items);
         fragmentManager = getSupportFragmentManager();
@@ -37,6 +41,12 @@ public class BottomNavActivity extends AppCompatActivity {
                 switch (id) {
                     case R.id.menu_home:
                         fragment = new DashboardFragment();
+                        if (intent.hasExtra("usuario")) {
+                            Usuario usuario = (Usuario) intent.getSerializableExtra("usuario");
+                            Bundle bundle = new Bundle();
+                            bundle.putSerializable("usuario", usuario);
+                            fragment.setArguments(bundle);
+                        }
                         break;
                     case R.id.menu_oportunidade:
                         fragment = new OportunidadeFragment();
@@ -56,5 +66,9 @@ public class BottomNavActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    public void selectItem(int id) {
+
     }
 }

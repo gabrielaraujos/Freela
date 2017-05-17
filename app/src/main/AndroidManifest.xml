@@ -20,12 +20,12 @@
         android:theme="@style/AppTheme">
         <activity android:name=".activity.MainActivity">
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
+             <intent-filter>
+             <action android:name="android.intent.action.MAIN" />
 
 
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+             <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
         </activity>
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.DashboardActivity"/>
@@ -33,13 +33,7 @@
         <activity android:name=".activity.CriarContaActivity" />
         <activity android:name=".activity.CriarContaPt2Activity" />
         <activity android:name=".activity.CriarOportunidadeActivity" />
-        <activity android:name=".activity.BottomNavActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".activity.BottomNavActivity"/>
 
         <!--
      ATTENTION: This was auto-generated to add Google Play services to your project for

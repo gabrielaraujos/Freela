@@ -110,9 +110,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         //startActivity(new Intent(this, DashboardActivity.class));
 
-        Intent intent = new Intent(this, DashboardActivity.class);
+        Intent intent = new Intent(this, BottomNavActivity.class);
 
-       // intent.putExtra("usuario", usuario);
+        intent.putExtra("usuario", usuario);
 
         startActivity(intent);
 
