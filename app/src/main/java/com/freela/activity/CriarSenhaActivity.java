@@ -1,6 +1,5 @@
 package com.freela.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -67,9 +66,12 @@ public class CriarSenhaActivity extends AppCompatActivity implements View.OnClic
 
         usuario.setCredenciais(credenciais);
 
-        Intent intent = new Intent(this, DashboardActivity.class);
+        Intent intent = new Intent(this, BottomNavActivity.class);
+
         intent.putExtra("usuario", usuario);
+
         startActivity(intent);
+
     }
 
     private void voltar(){

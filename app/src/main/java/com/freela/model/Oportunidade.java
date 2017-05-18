@@ -1,12 +1,13 @@
 package com.freela.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Gabriel on 16/11/2016.
  */
 
-public class Oportunidade {
+public class Oportunidade implements Serializable {
 
     private String titulo;
     private String descricao;

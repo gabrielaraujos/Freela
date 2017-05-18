@@ -12,7 +12,7 @@ import android.view.MenuItem;
 
 import com.freela.R;
 import com.freela.fragment.DashboardFragment;
-import com.freela.fragment.OportunidadeFragment;
+import com.freela.fragment.OportunidadesFragment;
 import com.freela.fragment.PerfilFragment;
 import com.freela.fragment.PesquisaFragment;
 import com.freela.model.Usuario;
@@ -49,7 +49,7 @@ public class BottomNavActivity extends AppCompatActivity {
                         }
                         break;
                     case R.id.menu_oportunidade:
-                        fragment = new OportunidadeFragment();
+                        fragment = new OportunidadesFragment();
                         break;
                     case R.id.menu_pesquisa:
                         fragment = new PesquisaFragment();

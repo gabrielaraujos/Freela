@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\Gabriel\.android\build-cache\2e4d6bfe97679bde43de9df5efd1ed42fa2c230e\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8a372c4191f80489770a231f7be4820b204b886a">
+        <dex dex="C:\Users\Gabriel\StudioProjects\Freela\app\build\intermediates\pre-dexed\debug\classes_eacb499cf42bf4b2dc86f3ccb656be5651336e2f.jar" />
+    </item>
+
+</items>

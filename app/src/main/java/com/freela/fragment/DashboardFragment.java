@@ -3,12 +3,12 @@ package com.freela.fragment;
 
 import android.content.ContentResolver;
 import android.content.Intent;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutCompat;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -25,7 +25,7 @@ import com.freela.model.Area;
 import com.freela.model.Oportunidade;
 import com.freela.model.Usuario;
 
-import java.lang.reflect.Array;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -41,9 +41,8 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
     TextView tvEstado;
     TextView tvPais;
 
-    ArrayList<Oportunidade> listitems = new ArrayList<>();
     RecyclerView myRecyclerView;
-    ArrayList<Oportunidade> Oportunidades = new ArrayList<>();
+    ArrayList<Oportunidade> oportunidades = new ArrayList<>();
 
     public DashboardFragment() {}
 
@@ -59,7 +58,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
                 new Area(0L, "TI")
                 );
 
-        Oportunidades.add(op1);
+        oportunidades.add(op1);
 
         Oportunidade op2 =  new Oportunidade(
                 "Analista de Software",
@@ -72,7 +71,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
                 new Area(0L, "TI")
         );
 
-        Oportunidades.add(op2);
+        oportunidades.add(op2);
 
         Oportunidade op3 =  new Oportunidade(
                 "Designer de jogos",
@@ -85,13 +84,13 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
                 new Area(0L, "TI")
         );
 
-        Oportunidades.add(op3);
+        oportunidades.add(op3);
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        listitems.clear();
+        oportunidades.clear();
         setOportunidades();
     }
 
@@ -105,8 +104,8 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
         LinearLayoutManager mylLayoutManager = new LinearLayoutManager(getActivity());
         mylLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
 
-        if(listitems.size() > 0 && myRecyclerView != null) {
-            myRecyclerView.setAdapter(new MyAdapter(listitems));
+        if(oportunidades.size() > 0 && myRecyclerView != null) {
+            myRecyclerView.setAdapter(new MyAdapter(oportunidades));
         }
 
         myRecyclerView.setLayoutManager(mylLayoutManager);
@@ -137,29 +136,70 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
         @Override
         public void onBindViewHolder(MyViewHolder holder, int position) {
             holder.tvTitle.setText(listOportunidades.get(position).getTitulo());
+            holder.tvDescricacao.setText(listOportunidades.get(position).getDescricao());
+            holder.tvDtInicio.setText(formatarData(listOportunidades.get(position).getDtInicio()));
+            holder.tvDtFim.setText(formatarData(listOportunidades.get(position).getDtFim()));
             holder.ivCover.setImageResource(listOportunidades.get(position).getImageResourceId());
             holder.ivCover.setTag(listOportunidades.get(position).getImageResourceId());
             holder.ivLike.setTag(R.drawable.ic_like);
+            holder.tvArea.setText(listOportunidades.get(position).getArea().getNome());
         }
 
         @Override
         public int getItemCount() {
             return listOportunidades.size();
         }
+
+        private String formatarData(Date data) {
+           SimpleDateFormat df = new SimpleDateFormat("EEEE, dd MMMM 'de' yyyy");
+            return df.format(data);
+        }
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView tvTitle;
+        public TextView tvDescricacao;
+        public TextView tvDtInicio;
+        public TextView tvDtFim;
         public ImageView ivCover;
         public ImageView ivLike;
         public ImageView ivShare;
+        public TextView tvArea;
 
         public MyViewHolder(View v) {
             super(v);
             tvTitle = (TextView) v.findViewById(R.id.titleTextView);
+            tvDescricacao = (TextView) v.findViewById(R.id.descricaoTextVew);
+            tvDtInicio = (TextView) v.findViewById(R.id.dtInicioTextVew);
+            tvDtFim = (TextView) v.findViewById(R.id.dtFimTextVew);
+            tvArea= (TextView) v.findViewById(R.id.areaTextVew);
             ivCover = (ImageView) v.findViewById(R.id.coverImageView);
             ivLike = (ImageView) v.findViewById(R.id.likeImageView);
             ivShare = (ImageView) v.findViewById(R.id.shareImageView);
+
+            tvTitle.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Fragment nextFragment = new OportunidadeFragment();
+                    Bundle bundle = new Bundle();
+
+                    bundle.putString("titulo", tvTitle.getText().toString());
+                    bundle.putString("descricao", tvDescricacao.getText().toString());
+                    bundle.putString("dtInicio", tvDtInicio.getText().toString());
+                    bundle.putString("dtFinal", tvDtFim.getText().toString());
+                    bundle.putInt("cover", (int) ivCover.getTag());
+                    bundle.putString("area", tvArea.getText().toString());
+//                    bundle.putInt("like", (int) ivCover.getTag());
+                  //  bundle.putInt("share", (int) ivShare.getTag());
+
+                    nextFragment.setArguments(bundle);
+
+                    FragmentManager fragmentManager =  getFragmentManager();
+
+                    final FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    transaction.replace(R.id.bottom_container, nextFragment).commit();
+                }
+            });
 
             ivLike.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -270,4 +310,5 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
         startActivity(new Intent(getContext(), MainActivity.class));
         //sessao.logout();
     }
+
 }
