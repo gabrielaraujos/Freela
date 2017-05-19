@@ -19,7 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 
-public class OportunidadesFragment extends Fragment implements View.OnClickListener {
+public class AddOportunidadesFragment extends Fragment implements View.OnClickListener {
     private EditText etTitulo;
     private EditText etDescricao;
     private TextView dtInicial;
@@ -31,7 +31,7 @@ public class OportunidadesFragment extends Fragment implements View.OnClickListe
     private Usuario usuario;
 
 
-    public OportunidadesFragment() {}
+    public AddOportunidadesFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

@@ -44,34 +44,46 @@ public class OportunidadeFragment extends Fragment  {
 
         tvTitle = (TextView) v.findViewById(R.id.titleTextView);
         tvDescricacao = (TextView) v.findViewById(R.id.descricaoTextVew);
-        tvDtInicio = (TextView) v.findViewById(R.id.dtInicioTextVew);
-        tvDtFim = (TextView) v.findViewById(R.id.dtFimTextVew);
-        tvArea= (TextView) v.findViewById(R.id.areaTextVew);
+//        tvDtInicio = (TextView) v.findViewById(R.id.dtInicioTextVew);
+//        tvDtFim = (TextView) v.findViewById(R.id.dtFimTextVew);
+//        tvArea= (TextView) v.findViewById(R.id.areaTextVew);
         ivCover = (ImageView) v.findViewById(R.id.coverImageView);
 //        ivLike = (ImageView) v.findViewById(R.id.likeImageView);
 //        ivShare = (ImageView) v.findViewById(R.id.shareImageView);
             voltar = (ImageView) v.findViewById(R.id.voltar);
 
 
-        Bundle bundle = this.getArguments();
+        final Bundle bundle = this.getArguments();
 
         tvTitle.setText(bundle.getString("titulo"));
         tvDescricacao.setText(bundle.getString("descricao"));
-        tvDtInicio.setText(bundle.getString("dtInicio"));
-        tvDtFim.setText(bundle.getString("dtFim"));
+//        tvDtInicio.setText(bundle.getString("dtInicio"));
+//        tvDtFim.setText(bundle.getString("dtFim"));
         ivCover.setImageResource(bundle.getInt("cover"));
         ivCover.setTag(bundle.getInt("cover"));
 //        ivLike.setImageResource(bundle.getInt("like"));
 //        ivLike.setTag(bundle.getInt("like"));
 //        ivShare.setImageResource(bundle.getInt("share"));
 //        ivShare.setTag(bundle.getInt("share"));
-        tvArea.setText(bundle.getString("area"));
+//        tvArea.setText(bundle.getString("area"));
 
             voltar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Fragment nextFragment = new DashboardFragment();
-//                    Bundle bundle = new Bundle();
+                    Fragment nextFragment = null;
+
+                    int id = bundle.getInt("fragment");
+
+                    switch (id) {
+                        case  R.layout.fragment_dashboard:
+                            nextFragment = new DashboardFragment();
+                            break;
+                        case R.layout.fragment_favoritos:
+                            nextFragment = new FavoritosFragment();
+                            break;
+                    }
+
+                    //                    Bundle bundle = new Bundle();
 //
 //                    bundle.putString("titulo", tvTitle.getText().toString());
 //                    bundle.putString("descricao", tvDescricacao.getText().toString());

@@ -1,45 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_vertical"
+    android:background="@color/laranja"
     android:orientation="vertical"
-    android:background="#FFFFFF">
+    app:layout_scrollFlags="scroll">
+
+    <Button
+        android:id="@+id/login_bt_voltar"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/ic_voltar_branco" />
 
     <TextView
         android:id="@+id/login_tv_esqueceu_senha"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/bt_esquecer_senha"
-        android:textSize="20dp"
+        android:layout_margin="20dp"
         android:clickable="true"
-        android:textColor="#333333"
-        android:textStyle="bold"
-        android:layout_gravity="right"
+        android:gravity="right"
+        android:text="@string/bt_esquecer_senha"
+        android:textColor="#FFFFFF"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="-160dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginTop="0dp"
         android:text="@string/lb_entrar"
-        android:textSize="50dp"
-        android:textColor="#333333" />
+        android:textColor="#FFFFFF"
+        android:textSize="40dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:text="@string/tv_email"
-        android:textSize="20dp"
-        android:textColor="#333333" />
+        android:textColor="#FFFFFF"
+        android:textSize="20dp" />
 
     <EditText
         android:id="@+id/login_et_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:inputType="text">
 
         <requestFocus />
@@ -49,29 +62,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:text="@string/lb_senha"
-        android:textSize="20dp"
-        android:textColor="#333333" />
+        android:textColor="#FFFFFF"
+        android:textSize="20dp" />
 
     <EditText
         android:id="@+id/login_et_senha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"/>
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:inputType="textPassword" />
 
     <Button
+        android:id="@+id/login_bt_entrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:layout_margin="20dp"
+        android:backgroundTint="#FFFFFF"
         android:text="@string/bt_entrar"
-        android:id="@+id/login_bt_entrar" />
+        android:textColor="@color/laranja" />
 
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:text="@string/bt_voltar"
-        android:id="@+id/login_bt_voltar" />
 
 </LinearLayout>

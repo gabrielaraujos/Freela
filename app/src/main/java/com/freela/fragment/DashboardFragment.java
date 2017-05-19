@@ -41,15 +41,21 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
     TextView tvEstado;
     TextView tvPais;
 
-    RecyclerView myRecyclerView;
-    ArrayList<Oportunidade> oportunidades = new ArrayList<>();
+    RecyclerView myRecyclerViewRecentes;
+    RecyclerView myRecyclerViewDestaque;
+    RecyclerView myRecyclerViewSugestoes;
+
+    ArrayList<Oportunidade> oportunidadesRecentes = new ArrayList<>();
+    ArrayList<Oportunidade> oportunidadesDestaque = new ArrayList<>();
+    ArrayList<Oportunidade> oportunidadesSugestoes = new ArrayList<>();
+
 
     public DashboardFragment() {}
 
     private void setOportunidades() {
         Oportunidade op1 =  new Oportunidade(
                 "Desenvolvedor de Softwares Senior",
-                "Desenvolver sistemas Mobile bra bra bra bra bra bra bra bra...",
+                "Desenvolver sistemas em um projeto Mobile de curta duração na cidade se São Paulo. É requerido conhecimentos na linguagem Swift.",
                 new Date(),
                 new Date(),
                 R.drawable.apple_logo,
@@ -58,11 +64,11 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
                 new Area(0L, "TI")
                 );
 
-        oportunidades.add(op1);
+        oportunidadesRecentes.add(op1);
 
         Oportunidade op2 =  new Oportunidade(
                 "Analista de Software",
-                "Analise de sistemas WEB bra bra bra bra bra bra bra bra...",
+                "Analise de projetos de sistemas WEB voltados ao público em geral. É reqeurido dominio sobre diagrama UML.",
                 new Date(),
                 new Date(),
                 R.drawable.google_logo,
@@ -71,11 +77,11 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
                 new Area(0L, "TI")
         );
 
-        oportunidades.add(op2);
+        oportunidadesRecentes.add(op2);
 
         Oportunidade op3 =  new Oportunidade(
                 "Designer de jogos",
-                "Projetar layouts para Jogos  bra bra bra bra bra bra bra bra...",
+                "Projetar layouts para projetos de Jogos para PC.",
                 new Date(),
                 new Date(),
                 R.drawable.microsoft_logo,
@@ -84,13 +90,16 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
                 new Area(0L, "TI")
         );
 
-        oportunidades.add(op3);
+        oportunidadesRecentes.add(op3);
+        oportunidadesDestaque.addAll(oportunidadesRecentes);
+        oportunidadesSugestoes.addAll(oportunidadesDestaque);
+
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        oportunidades.clear();
+        oportunidadesRecentes.clear();
         setOportunidades();
     }
 
@@ -98,17 +107,33 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
-        myRecyclerView = (RecyclerView) view.findViewById(R.id.cardView);
-        myRecyclerView.setHasFixedSize(true);
+        myRecyclerViewRecentes = (RecyclerView) view.findViewById(R.id.cardViewRecentes);
+        myRecyclerViewRecentes.setHasFixedSize(true);
+
+//        myRecyclerViewDestaque = (RecyclerView) view.findViewById(R.id.cardViewDestaque);
+//        myRecyclerViewDestaque.setHasFixedSize(true);
+//
+//        myRecyclerViewSugestoes = (RecyclerView) view.findViewById(R.id.cardViewSugestao);
+//        myRecyclerViewSugestoes.setHasFixedSize(true);
 
         LinearLayoutManager mylLayoutManager = new LinearLayoutManager(getActivity());
-        mylLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        mylLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
-        if(oportunidades.size() > 0 && myRecyclerView != null) {
-            myRecyclerView.setAdapter(new MyAdapter(oportunidades));
+        if(oportunidadesRecentes.size() > 0 && myRecyclerViewRecentes != null) {
+            myRecyclerViewRecentes.setAdapter(new MyAdapter(oportunidadesRecentes));
         }
 
-        myRecyclerView.setLayoutManager(mylLayoutManager);
+//        if(oportunidadesDestaque.size() > 0 && myRecyclerViewDestaque != null) {
+//            myRecyclerViewDestaque.setAdapter(new MyAdapter(oportunidadesDestaque));
+//        }
+//
+//        if(oportunidadesSugestoes.size() > 0 && myRecyclerViewSugestoes != null) {
+//            myRecyclerViewSugestoes.setAdapter(new MyAdapter(oportunidadesSugestoes));
+//        }
+
+        myRecyclerViewRecentes.setLayoutManager(mylLayoutManager);
+//        myRecyclerViewDestaque.setLayoutManager(mylLayoutManager);
+//        myRecyclerViewSugestoes.setLayoutManager(mylLayoutManager);
 
         return view;
     }
@@ -137,12 +162,15 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
         public void onBindViewHolder(MyViewHolder holder, int position) {
             holder.tvTitle.setText(listOportunidades.get(position).getTitulo());
             holder.tvDescricacao.setText(listOportunidades.get(position).getDescricao());
-            holder.tvDtInicio.setText(formatarData(listOportunidades.get(position).getDtInicio()));
-            holder.tvDtFim.setText(formatarData(listOportunidades.get(position).getDtFim()));
+//            holder.tvDtInicio.setText(formatarData(listOportunidades.get(position).getDtInicio()));
+//            holder.tvDtFim.setText(formatarData(listOportunidades.get(position).getDtFim()));
             holder.ivCover.setImageResource(listOportunidades.get(position).getImageResourceId());
             holder.ivCover.setTag(listOportunidades.get(position).getImageResourceId());
+            holder.ivLike.setImageResource(R.drawable.ic_like);
             holder.ivLike.setTag(R.drawable.ic_like);
-            holder.tvArea.setText(listOportunidades.get(position).getArea().getNome());
+            holder.ivShare.setImageResource(R.drawable.ic_share);
+            holder.ivShare.setTag(R.drawable.ic_share);
+//            holder.tvArea.setText(listOportunidades.get(position).getArea().getNome());
         }
 
         @Override
@@ -172,7 +200,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
             tvDescricacao = (TextView) v.findViewById(R.id.descricaoTextVew);
             tvDtInicio = (TextView) v.findViewById(R.id.dtInicioTextVew);
             tvDtFim = (TextView) v.findViewById(R.id.dtFimTextVew);
-            tvArea= (TextView) v.findViewById(R.id.areaTextVew);
+//            tvArea= (TextView) v.findViewById(R.id.areaTextVew);
             ivCover = (ImageView) v.findViewById(R.id.coverImageView);
             ivLike = (ImageView) v.findViewById(R.id.likeImageView);
             ivShare = (ImageView) v.findViewById(R.id.shareImageView);
@@ -185,10 +213,11 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
 
                     bundle.putString("titulo", tvTitle.getText().toString());
                     bundle.putString("descricao", tvDescricacao.getText().toString());
-                    bundle.putString("dtInicio", tvDtInicio.getText().toString());
-                    bundle.putString("dtFinal", tvDtFim.getText().toString());
+//                    bundle.putString("dtInicio", tvDtInicio.getText().toString());
+//                    bundle.putString("dtFinal", tvDtFim.getText().toString());
                     bundle.putInt("cover", (int) ivCover.getTag());
-                    bundle.putString("area", tvArea.getText().toString());
+//                    bundle.putString("area", tvArea.getText().toString());
+                    bundle.putInt("fragment", R.layout.fragment_dashboard);
 //                    bundle.putInt("like", (int) ivCover.getTag());
                   //  bundle.putInt("share", (int) ivShare.getTag());
 

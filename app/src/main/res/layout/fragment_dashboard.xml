@@ -9,18 +9,32 @@
     android:weightSum="1"
     tools:context="com.freela.fragment.DashboardFragment">
 
-
-
+        <!--<android.support.v7.widget.SearchView-->
+            <!--android:id="@+id/search"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content" />-->
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/cardView"
+            android:id="@+id/cardViewRecentes"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
+        <!--<android.support.v7.widget.RecyclerView-->
+            <!--android:id="@+id/cardViewDestaque"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent" />-->
+
+
+        <!--<android.support.v7.widget.RecyclerView-->
+            <!--android:id="@+id/cardViewSugestao"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent" />-->
 
 
 
-    <!--<Button-->
+
+
+        <!--<Button-->
         <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="wrap_content"-->
         <!--android:layout_gravity="right"-->

@@ -53,10 +53,13 @@
     <string name="fragment_dashboard">Dashboard</string>
     <string name="fragment_oportunidade">Oportunidade</string>
     <string name="fragment_perfil">Perfil</string>
-    <string name="fragment_pesquisa">Pesquisa</string>
+    <string name="fragment_pesquisa">Explorar</string>
 
 
     <string name="oportunidade_compartilhar">Compartilhar</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="menu_favoritos">Favoritos</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
