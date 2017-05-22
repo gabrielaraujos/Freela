@@ -1,7 +1,9 @@
 package com.freela.fragment;
 
 
+import android.app.Activity;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,6 +13,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +24,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.freela.R;
-import com.freela.activity.MainActivity;
 import com.freela.model.Area;
 import com.freela.model.Oportunidade;
 import com.freela.model.Usuario;
@@ -30,7 +33,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 
-public class DashboardFragment extends Fragment implements View.OnClickListener {
+public class DashboardFragment extends Fragment implements SearchView.OnQueryTextListener {
     private Usuario usuario;
     private Button btSair;
     private Button btAddOportuniade;
@@ -41,24 +44,27 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
     TextView tvEstado;
     TextView tvPais;
 
-    RecyclerView myRecyclerViewRecentes;
-    RecyclerView myRecyclerViewDestaque;
-    RecyclerView myRecyclerViewSugestoes;
+    private RecyclerView myRecyclerViewRecentes;
+    private MyAdapter adapter;
+    private SearchView mSearchView;
+
+    private RecyclerView myRecyclerViewDestaque;
+    private RecyclerView myRecyclerViewSugestoes;
 
     ArrayList<Oportunidade> oportunidadesRecentes = new ArrayList<>();
-    ArrayList<Oportunidade> oportunidadesDestaque = new ArrayList<>();
-    ArrayList<Oportunidade> oportunidadesSugestoes = new ArrayList<>();
+//    ArrayList<Oportunidade> oportunidadesDestaque = new ArrayList<>();
+//    ArrayList<Oportunidade> oportunidadesSugestoes = new ArrayList<>();
 
 
     public DashboardFragment() {}
 
     private void setOportunidades() {
         Oportunidade op1 =  new Oportunidade(
-                "Desenvolvedor de Softwares Senior",
+                "Desenvolvedor de Softwares Sênior",
                 "Desenvolver sistemas em um projeto Mobile de curta duração na cidade se São Paulo. É requerido conhecimentos na linguagem Swift.",
                 new Date(),
                 new Date(),
-                R.drawable.apple_logo,
+                R.drawable.apple_logo_2,
                 0,
                 0,
                 new Area(0L, "TI")
@@ -67,7 +73,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
         oportunidadesRecentes.add(op1);
 
         Oportunidade op2 =  new Oportunidade(
-                "Analista de Software",
+                "Analista de Sistemas",
                 "Analise de projetos de sistemas WEB voltados ao público em geral. É reqeurido dominio sobre diagrama UML.",
                 new Date(),
                 new Date(),
@@ -91,8 +97,8 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
         );
 
         oportunidadesRecentes.add(op3);
-        oportunidadesDestaque.addAll(oportunidadesRecentes);
-        oportunidadesSugestoes.addAll(oportunidadesDestaque);
+//        oportunidadesDestaque.addAll(oportunidadesRecentes);
+//        oportunidadesSugestoes.addAll(oportunidadesDestaque);
 
     }
 
@@ -107,8 +113,28 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
+        mSearchView = (SearchView) view.findViewById(R.id.search_view);
+
         myRecyclerViewRecentes = (RecyclerView) view.findViewById(R.id.cardViewRecentes);
         myRecyclerViewRecentes.setHasFixedSize(true);
+        myRecyclerViewRecentes.setLayoutManager(new LinearLayoutManager(getContext()));
+
+
+//        mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//
+//           @Override
+//            public boolean onQueryTextChange(String newText) {
+//                adapter.filter(newText);
+//                return true;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                return false;
+//            }
+//        });
+
+
 
 //        myRecyclerViewDestaque = (RecyclerView) view.findViewById(R.id.cardViewDestaque);
 //        myRecyclerViewDestaque.setHasFixedSize(true);
@@ -119,9 +145,13 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
         LinearLayoutManager mylLayoutManager = new LinearLayoutManager(getActivity());
         mylLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
-        if(oportunidadesRecentes.size() > 0 && myRecyclerViewRecentes != null) {
-            myRecyclerViewRecentes.setAdapter(new MyAdapter(oportunidadesRecentes));
-        }
+        adapter =  new MyAdapter(view.getContext(), oportunidadesRecentes);
+        myRecyclerViewRecentes.setAdapter(adapter);
+        setupSearchView();
+
+//        if(oportunidadesRecentes.size() > 0 && myRecyclerViewRecentes != null) {
+//            myRecyclerViewRecentes.setAdapter(new MyAdapter(view.getContext(),oportunidadesRecentes));
+//        }
 
 //        if(oportunidadesDestaque.size() > 0 && myRecyclerViewDestaque != null) {
 //            myRecyclerViewDestaque.setAdapter(new MyAdapter(oportunidadesDestaque));
@@ -138,16 +168,37 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
         return view;
     }
 
+    private void setupSearchView() {
+        mSearchView.setIconifiedByDefault(false);
+        //certo?
+        mSearchView.setOnQueryTextListener(this);
+        mSearchView.setSubmitButtonEnabled(true);
+        mSearchView.setQueryHint("Explorar oportunidades");
+    }
+
+    public boolean onQueryTextChange(String newText) {
+        adapter.filter(newText);
+        return true;
+    }
+
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
     }
 
     public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
-        private ArrayList<Oportunidade> listOportunidades;
+        private ArrayList<Oportunidade> listOportunidades, filterListOportunidades;
+        private Context mContext;
 
-        public MyAdapter(ArrayList<Oportunidade> oportunidades) {
-            listOportunidades = oportunidades;
+        public MyAdapter(Context context, ArrayList<Oportunidade> oportunidades) {
+            this.listOportunidades = oportunidades;
+            this.mContext = context;
+            this.filterListOportunidades =  new ArrayList<Oportunidade>();
+            this.filterListOportunidades.addAll(this.listOportunidades);
         }
 
         @Override
@@ -175,14 +226,45 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
 
         @Override
         public int getItemCount() {
-            return listOportunidades.size();
+            return ( listOportunidades != null ? listOportunidades.size() : 0);
         }
 
         private String formatarData(Date data) {
            SimpleDateFormat df = new SimpleDateFormat("EEEE, dd MMMM 'de' yyyy");
             return df.format(data);
         }
+
+        public void filter(final String text) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    //limpa a lista a ser filtrada
+                    filterListOportunidades.clear();
+
+                    //Se não há valor procurado, então adiciona todos os itens da lista original nas lista filtrada
+                    if(TextUtils.isEmpty(text)) {
+                        filterListOportunidades.addAll(listOportunidades);
+                    } else {
+                        //interage no lista original e adiciona ela à lista filtrada
+                        for (Oportunidade oportunidade : listOportunidades) {
+                            if(oportunidade.getTitulo().toLowerCase().contains(text.toLowerCase()) || oportunidade.getDescricao().toLowerCase().contains(text.toLowerCase())) {
+                                filterListOportunidades.add(oportunidade);
+                            }
+                        }
+                    }
+
+                    // Seta na UI Thread
+                    ((Activity) mContext).runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            notifyDataSetChanged();
+                        }
+                    });
+                }
+            }).start();
+        }
     }
+
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView tvTitle;
@@ -326,18 +408,18 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
 //        }
 //    }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.dashboard_bt_sair:
-                sair();
-                break;
-        }
-    }
-
-    private void sair() {
-        startActivity(new Intent(getContext(), MainActivity.class));
-        //sessao.logout();
-    }
+//    @Override
+//    public void onClick(View view) {
+//        switch (view.getId()) {
+//            case R.id.dashboard_bt_sair:
+//                sair();
+//                break;
+//        }
+//    }
+//
+//    private void sair() {
+//        startActivity(new Intent(getContext(), MainActivity.class));
+//        //sessao.logout();
+//    }
 
 }

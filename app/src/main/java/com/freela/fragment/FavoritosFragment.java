@@ -49,7 +49,7 @@ public class FavoritosFragment extends Fragment {
 
     private void setOportunidades() {
         Oportunidade op1 =  new Oportunidade(
-                "Desenvolvedor de Softwares Senior",
+                "Desenvolvedor de Softwares Sênior",
                 "Desenvolver sistemas em um projeto Mobile de curta duração na cidade se São Paulo. É requerido conhecimentos na linguagem Swift.",
                 new Date(),
                 new Date(),

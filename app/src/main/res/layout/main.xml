@@ -21,18 +21,6 @@
         />
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        android:text="Bem vindo(a) ao Freela"
-        android:textSize="25dp"
-        android:textColor="#FFFFFF"
-    android:fontFamily="sans-serif-condensed"
-        />
-
-
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,7 +29,7 @@
         android:text="@string/bt_entrar"
         android:layout_below="@+id/app_name"
         android:id="@+id/main_bt_entrar"
-android:backgroundTint="#FFFFFF"
+        android:background="@drawable/botao_branco"
         android:textColor="@color/laranja"
         />
 
@@ -54,9 +42,9 @@ android:backgroundTint="#FFFFFF"
         android:layout_below="@+id/main_bt_entrar"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_margin="20dp"
-        android:backgroundTint="#FFFFFF"
-        android:textColor="@color/laranja"
+        android:layout_margin="10dp"
+       android:background="@drawable/estilo_botao"
+        android:textColor="#FFFFFF"
         />
 
 
