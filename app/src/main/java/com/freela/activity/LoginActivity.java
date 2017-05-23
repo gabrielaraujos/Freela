@@ -1,6 +1,5 @@
 package com.freela.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -12,7 +11,6 @@ import android.widget.Toast;
 
 import com.freela.R;
 import com.freela.model.Credenciais;
-import com.freela.model.Localizacao;
 import com.freela.model.Usuario;
 
 //import com.freela.manager.SessionManager;
@@ -140,7 +138,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             //return LoginHttp.carregarUsuarioJson(credenciais[0]);
 
-            return new Usuario("gabriel@email.com", "Gabriel", new Localizacao("Brasil", "Fortaleza", "Ceará"));
+            return new Usuario("gabriel@email.com", "Gabriel", "123456");
         }
 
         @Override

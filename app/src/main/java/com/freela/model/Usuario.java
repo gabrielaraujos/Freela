@@ -11,16 +11,15 @@ import java.io.Serializable;
 public class Usuario implements Serializable {
     private String email;
     private String nome;
-    private Localizacao localizacao;
     private Papel papel;
-    private Credenciais credenciais;
+    private String senha;
 
     public Usuario() {}
 
-    public  Usuario(String email, String nome, Localizacao localizacao) {
+    public  Usuario(String email, String nome, String senha) {
         this.email = email;
         this.nome = nome;
-        this.localizacao = localizacao;
+        this.senha = senha;
     }
 
     public String getEmail() {
@@ -39,27 +38,11 @@ public class Usuario implements Serializable {
         this.nome = nome;
     }
 
-    public Localizacao getLocalizacao() {
-        return localizacao;
-    }
-
-    public void setLocalizacao(Localizacao localizacao) {
-        this.localizacao = localizacao;
-    }
-
     public Papel getPapel() {
         return papel;
     }
 
     public void setPapel(Papel papel) {
         this.papel = papel;
-    }
-
-    public Credenciais getCredenciais() {
-        return credenciais;
-    }
-
-    public void setCredenciais(Credenciais credenciais) {
-        this.credenciais = credenciais;
     }
 }

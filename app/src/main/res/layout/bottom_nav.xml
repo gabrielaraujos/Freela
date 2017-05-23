@@ -9,6 +9,13 @@
     android:orientation="vertical"
     tools:context=".activity.DashboardActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        design:popupTheme="@style/AppTheme.PopupOverlay" />
+
     <FrameLayout
         android:id="@+id/bottom_container"
         android:layout_width="match_parent"
