@@ -4,6 +4,7 @@ package com.freela.fragment;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,7 +13,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -62,7 +63,7 @@ public class DashboardFragment extends Fragment implements SearchView.OnQueryTex
 
     public DashboardFragment() {}
 
-    private void setOportunidades() {
+    private ArrayList<Oportunidade> setOportunidades() {
         Oportunidade op1 =  new Oportunidade(
                 "Desenvolvedor de Softwares Sênior",
                 "Desenvolver sistemas em um projeto Mobile de curta duração na cidade se São Paulo. É requerido conhecimentos na linguagem Swift.",
@@ -101,6 +102,8 @@ public class DashboardFragment extends Fragment implements SearchView.OnQueryTex
         );
 
         oportunidadesRecentes.add(op3);
+
+        return oportunidadesRecentes;
 //        oportunidadesDestaque.addAll(oportunidadesRecentes);
 //        oportunidadesSugestoes.addAll(oportunidadesDestaque);
 
@@ -116,8 +119,8 @@ public class DashboardFragment extends Fragment implements SearchView.OnQueryTex
 
         setHasOptionsMenu(true);
 
-        oportunidadesRecentes.clear();
-        setOportunidades();
+//        oportunidadesRecentes.clear();
+//        setOportunidades();
 
     }
 
@@ -342,4 +345,26 @@ public class DashboardFragment extends Fragment implements SearchView.OnQueryTex
 //        //sessao.logout();
 //    }
 
+
+    /*
+       Classe interna para operaçẽos assíncronas na base de dados.
+    */
+    private class Task extends AsyncTask<Void, Void, ArrayList<Oportunidade>> { //<Params, Progress, Result>
+
+        ArrayList<Oportunidade> oportunidades;
+
+        @Override
+        protected ArrayList<Oportunidade> doInBackground(Void... voids) {
+            return setOportunidades();
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<Oportunidade> oportunidades) {
+            super.onPostExecute(oportunidades);
+            //copia a lista de carros para uso no onQueryTextChange()
+            DashboardFragment.this.oportunidadesRecentes = oportunidades;
+            //atualiza a view na UIThread
+            myRecyclerViewRecentes.setAdapter(new MyAdapter(getContext(), oportunidades, onClickOportunidade())); //Context, fonte de dados, tratador do evento onClick
+        }
+    }//fim classe interna
 }

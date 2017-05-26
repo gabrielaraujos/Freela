@@ -29,7 +29,7 @@ public class AddUsuarioHttp extends Http {
             jsonObject.put("email", usuario.getEmail());
             jsonObject.put("nome", usuario.getNome());
             jsonObject.put("papel", usuario.getPapel());
-            jsonObject.put("credenciais", usuario.getCredenciais());
+//            jsonObject.put("credenciais", usuario.getCredenciais());
 
             HttpURLConnection conexao = connectar(URL_API_ADD, jsonObject);
 

@@ -10,8 +10,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.freela.R;
-import com.freela.model.Credenciais;
-import com.freela.model.Localizacao;
 import com.freela.model.Usuario;
 
 /**
@@ -62,13 +60,13 @@ public class CriarSenhaActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void proximo() {
-        Credenciais credenciais = new Credenciais(usuario.getEmail(), etSenha.getText().toString());
+       // Credenciais credenciais = new Credenciais(usuario.getEmail(), etSenha.getText().toString());
 
-        usuario.setCredenciais(credenciais);
+       // usuario.setCredenciais(credenciais);
 
         Intent intent = new Intent(this, BottomNavActivity.class);
 
-        intent.putExtra("usuario", usuario);
+        //intent.putExtra("usuario", usuario);
 
         startActivity(intent);
 
@@ -100,7 +98,7 @@ public class CriarSenhaActivity extends AppCompatActivity implements View.OnClic
         @Override
         protected Usuario doInBackground(Usuario... usuarios) {
             //return AddHttp.addUsuario(usuarios[0]);
-            return new Usuario("gabriel@tvEmail.com", "Gabriel", new Localizacao("Brasil", "Belo Horizonte", "Minas Gerais"));
+            return new Usuario("gabriel@tvEmail.com", "Gabriel",  "123456");
         }
 
         @Override

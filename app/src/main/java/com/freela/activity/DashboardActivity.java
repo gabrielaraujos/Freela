@@ -67,11 +67,11 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
             tvNome.setText(usuario.getNome());
             tvEmail.setText(usuario.getEmail());
 
-            if (usuario.getLocalizacao() != null) {
-                tvCidade.setText(usuario.getLocalizacao().getCidade());
-                tvEstado.setText(usuario.getLocalizacao().getEstado());
-                tvPais.setText(usuario.getLocalizacao().getPais());
-            }
+//            if (usuario.getLocalizacao() != null) {
+//                tvCidade.setText(usuario.getLocalizacao().getCidade());
+//                tvEstado.setText(usuario.getLocalizacao().getEstado());
+//                tvPais.setText(usuario.getLocalizacao().getPais());
+//            }
         } else {
             Toast toast = Toast.makeText(this, "Erro!!!", Toast.LENGTH_SHORT);
             toast.show();
