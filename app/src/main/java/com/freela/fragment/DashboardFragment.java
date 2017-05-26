@@ -119,9 +119,8 @@ public class DashboardFragment extends Fragment implements SearchView.OnQueryTex
 
         setHasOptionsMenu(true);
 
-//        oportunidadesRecentes.clear();
-//        setOportunidades();
-
+        oportunidadesRecentes.clear();
+        setOportunidades();
     }
 
     @Override
@@ -133,6 +132,10 @@ public class DashboardFragment extends Fragment implements SearchView.OnQueryTex
         myRecyclerViewRecentes.setLayoutManager(linearLayoutManager);
         myRecyclerViewRecentes.setItemAnimator(new DefaultItemAnimator());
         myRecyclerViewRecentes.setHasFixedSize(true);
+
+        if(oportunidadesRecentes.size() > 0 && myRecyclerViewRecentes != null) {
+            myRecyclerViewRecentes.setAdapter(new MyAdapter(view.getContext(),oportunidadesRecentes, onClickOportunidade()));
+        }
 
 //        mSearchView = (SearchView) view.findViewById(R.id.search_view);
 

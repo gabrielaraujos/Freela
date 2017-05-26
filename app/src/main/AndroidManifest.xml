@@ -18,7 +18,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.MainActivity" android:windowSoftInputMode="adjustResize">
 
              <intent-filter>
              <action android:name="android.intent.action.MAIN" />
@@ -33,7 +33,7 @@
         <activity android:name=".activity.CriarContaActivity" />
         <activity android:name=".activity.CriarContaPt2Activity" />
         <activity android:name=".activity.CriarOportunidadeActivity" />
-        <activity android:name=".activity.BottomNavActivity"/>
+        <activity android:name=".activity.BottomNavActivity" android:windowSoftInputMode="adjustResize" />
 
         <!--
      ATTENTION: This was auto-generated to add Google Play services to your project for
