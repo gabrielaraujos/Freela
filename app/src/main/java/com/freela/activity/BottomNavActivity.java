@@ -13,7 +13,7 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 
 import com.freela.R;
-import com.freela.fragment.DashboardFragment;
+import com.freela.fragment.DashboardFreelancerFragment;
 import com.freela.fragment.FavoritosFragment;
 import com.freela.fragment.PerfilFragment;
 import com.freela.model.Usuario;
@@ -66,7 +66,7 @@ public class BottomNavActivity extends AppCompatActivity {
     public void selectItem(int id) {
         switch (id) {
             case R.id.menu_home:
-                fragment = new DashboardFragment();
+                fragment = new DashboardFreelancerFragment();
                 if (intent.hasExtra("usuario")) {
                     Usuario usuario = (Usuario) intent.getSerializableExtra("usuario");
                     Bundle bundle = new Bundle();
@@ -84,7 +84,7 @@ public class BottomNavActivity extends AppCompatActivity {
                 fragment = new PerfilFragment();
                 break;
             default:
-                fragment = new DashboardFragment();
+                fragment = new DashboardFreelancerFragment();
                 break;
         }
         final FragmentTransaction transaction = fragmentManager.beginTransaction();

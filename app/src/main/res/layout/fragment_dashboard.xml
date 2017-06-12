@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="#FFFFFF"
     android:weightSum="1"
-    tools:context="com.freela.fragment.DashboardFragment">
+    tools:context="com.freela.fragment.DashboardFreelancerFragment">
 
         <!--<android.support.v7.widget.SearchView-->
             <!--android:id="@+id/search"-->

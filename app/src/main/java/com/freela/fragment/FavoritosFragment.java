@@ -117,7 +117,7 @@ public class FavoritosFragment extends Fragment {
 
         @Override
         public FavoritosFragment.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycle_items, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycle_oportunidades, parent, false);
             FavoritosFragment.MyViewHolder holder = new FavoritosFragment.MyViewHolder(view);
 
             return holder;
@@ -127,7 +127,7 @@ public class FavoritosFragment extends Fragment {
         public void onBindViewHolder(FavoritosFragment.MyViewHolder holder, int position) {
             holder.tvTitle.setText(listOportunidades.get(position).getTitulo());
             holder.tvDescricacao.setText(listOportunidades.get(position).getDescricao());
-//            holder.tvDtInicio.setText(formatarData(listOportunidades.get(position).getDtInicio()));
+//            holder.tvEmail.setText(formatarData(listOportunidades.get(position).getDtInicio()));
 //            holder.tvDtFim.setText(formatarData(listOportunidades.get(position).getDtFim()));
             holder.ivCover.setImageResource(listOportunidades.get(position).getImageResourceId());
             holder.ivCover.setTag(listOportunidades.get(position).getImageResourceId());
@@ -163,7 +163,7 @@ public class FavoritosFragment extends Fragment {
             super(v);
             tvTitle = (TextView) v.findViewById(R.id.titleTextView);
             tvDescricacao = (TextView) v.findViewById(R.id.descricaoTextVew);
-//            tvDtInicio = (TextView) v.findViewById(R.id.dtInicioTextVew);
+//            tvEmail = (TextView) v.findViewById(R.id.dtInicioTextVew);
 //            tvDtFim = (TextView) v.findViewById(R.id.dtFimTextVew);
 //            tvArea= (TextView) v.findViewById(R.id.areaTextVew);
             ivCover = (ImageView) v.findViewById(R.id.coverImageView);
@@ -178,7 +178,7 @@ public class FavoritosFragment extends Fragment {
 
                     bundle.putString("titulo", tvTitle.getText().toString());
                     bundle.putString("descricao", tvDescricacao.getText().toString());
-//                    bundle.putString("dtInicio", tvDtInicio.getText().toString());
+//                    bundle.putString("dtInicio", tvEmail.getText().toString());
 //                    bundle.putString("dtFinal", tvDtFim.getText().toString());
                     bundle.putInt("cover", (int) ivCover.getTag());
 //                    bundle.putString("area", tvArea.getText().toString());

@@ -8,7 +8,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -44,7 +43,7 @@ public class OportunidadeFragment extends Fragment  {
 
         tvTitle = (TextView) v.findViewById(R.id.titleTextView);
         tvDescricacao = (TextView) v.findViewById(R.id.descricaoTextVew);
-//        tvDtInicio = (TextView) v.findViewById(R.id.dtInicioTextVew);
+//        tvEmail = (TextView) v.findViewById(R.id.dtInicioTextVew);
 //        tvDtFim = (TextView) v.findViewById(R.id.dtFimTextVew);
 //        tvArea= (TextView) v.findViewById(R.id.areaTextVew);
         ivCover = (ImageView) v.findViewById(R.id.coverImageView);
@@ -55,12 +54,14 @@ public class OportunidadeFragment extends Fragment  {
 
         final Bundle bundle = this.getArguments();
 
-        tvTitle.setText(bundle.getString("titulo"));
-        tvDescricacao.setText(bundle.getString("descricao"));
-//        tvDtInicio.setText(bundle.getString("dtInicio"));
+            Oportunidade oportunidade = (Oportunidade) bundle.getSerializable("oportunidade");
+
+        tvTitle.setText(oportunidade.getTitulo());
+        tvDescricacao.setText(oportunidade.getDescricao());
+//        tvEmail.setText(bundle.getString("dtInicio"));
 //        tvDtFim.setText(bundle.getString("dtFim"));
-        ivCover.setImageResource(bundle.getInt("cover"));
-        ivCover.setTag(bundle.getInt("cover"));
+        ivCover.setImageResource(oportunidade.getImageResourceId());
+        ivCover.setTag(oportunidade.getImageResourceId());
 //        ivLike.setImageResource(bundle.getInt("like"));
 //        ivLike.setTag(bundle.getInt("like"));
 //        ivShare.setImageResource(bundle.getInt("share"));
@@ -76,7 +77,7 @@ public class OportunidadeFragment extends Fragment  {
 
                     switch (id) {
                         case  R.layout.fragment_dashboard:
-                            nextFragment = new DashboardFragment();
+                            nextFragment = new DashboardFreelancerFragment();
                             break;
                         case R.layout.fragment_favoritos:
                             nextFragment = new FavoritosFragment();
@@ -85,9 +86,9 @@ public class OportunidadeFragment extends Fragment  {
 
                     //                    Bundle bundle = new Bundle();
 //
-//                    bundle.putString("titulo", tvTitle.getText().toString());
-//                    bundle.putString("descricao", tvDescricacao.getText().toString());
-//                    bundle.putString("dtInicio", tvDtInicio.getText().toString());
+//                    bundle.putString("titulo", tvNome.getText().toString());
+//                    bundle.putString("descricao", tvProfissao.getText().toString());
+//                    bundle.putString("dtInicio", tvEmail.getText().toString());
 //                    bundle.putString("dtFinal", tvDtFim.getText().toString());
 //                    bundle.putInt("cover", (int) ivCover.getTag());
 //                    bundle.putString("area", tvArea.getText().toString());
