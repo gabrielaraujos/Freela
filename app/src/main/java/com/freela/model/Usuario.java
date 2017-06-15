@@ -21,6 +21,12 @@ public class Usuario implements Serializable {
         this.nome = nome;
         this.senha = senha;
     }
+    public  Usuario(String email, String nome, Papel papel, String senha) {
+        this.email = email;
+        this.nome = nome;
+        this.papel = papel;
+        this.senha = senha;
+    }
 
     public String getEmail() {
         return email;

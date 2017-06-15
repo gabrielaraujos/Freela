@@ -26,9 +26,7 @@ import android.widget.Toast;
 
 import com.freela.R;
 import com.freela.adapter.MyAdapterFreelancer;
-import com.freela.adapter.MyAdapterOportunidade;
 import com.freela.model.Freelancer;
-import com.freela.model.Oportunidade;
 import com.freela.model.Usuario;
 
 import java.util.ArrayList;
@@ -71,7 +69,7 @@ public class DashboardEmpresaFragment extends Fragment implements SearchView.OnQ
 
         Freelancer fr2 =  new Freelancer(
                 "adalovelace@email.com",
-                "Ada Lovelance",
+                "Ada Lovelance teste",
                 "lovelance123",
                 "Desenvolvedora",
                 R.drawable.lovelance,

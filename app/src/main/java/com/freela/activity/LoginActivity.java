@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.freela.R;
 import com.freela.model.Credenciais;
+import com.freela.model.Papel;
 import com.freela.model.Usuario;
 
 //import com.freela.manager.SessionManager;
@@ -138,7 +139,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             //return LoginHttp.carregarUsuarioJson(credenciais[0]);
 
-            return new Usuario("gabriel@email.com", "Gabriel", "123456");
+            return new Usuario("gabriel@email.com", "Gabriel", Papel.EMPRESA,  "123456");
         }
 
         @Override

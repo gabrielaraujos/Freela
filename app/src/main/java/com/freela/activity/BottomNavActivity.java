@@ -13,12 +13,12 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 
 import com.freela.R;
+import com.freela.fragment.DashboardEmpresaFragment;
 import com.freela.fragment.DashboardFreelancerFragment;
 import com.freela.fragment.FavoritosFragment;
 import com.freela.fragment.PerfilFragment;
+import com.freela.model.Papel;
 import com.freela.model.Usuario;
-
-import static android.R.attr.id;
 
 public class BottomNavActivity extends AppCompatActivity {
     private static final String TAG = BottomNavActivity.class.getSimpleName();
@@ -47,7 +47,7 @@ public class BottomNavActivity extends AppCompatActivity {
         bottomNavigation.inflateMenu(R.menu.bottom_nav_items);
         fragmentManager = getSupportFragmentManager();
 
-        selectItem(id);
+        selectItem(R.id.menu_home);
 
         bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -66,9 +66,15 @@ public class BottomNavActivity extends AppCompatActivity {
     public void selectItem(int id) {
         switch (id) {
             case R.id.menu_home:
-                fragment = new DashboardFreelancerFragment();
                 if (intent.hasExtra("usuario")) {
                     Usuario usuario = (Usuario) intent.getSerializableExtra("usuario");
+
+                    if(usuario.getPapel().equals(Papel.FREELANCER)) {
+                        fragment = new DashboardFreelancerFragment();
+                    } else {
+                        fragment = new DashboardEmpresaFragment();
+                    }
+
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("usuario", usuario);
                     fragment.setArguments(bundle);
@@ -82,9 +88,6 @@ public class BottomNavActivity extends AppCompatActivity {
 //                        break;
             case R.id.menu_perfil:
                 fragment = new PerfilFragment();
-                break;
-            default:
-                fragment = new DashboardFreelancerFragment();
                 break;
         }
         final FragmentTransaction transaction = fragmentManager.beginTransaction();

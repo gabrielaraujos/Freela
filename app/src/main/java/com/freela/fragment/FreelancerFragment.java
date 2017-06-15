@@ -30,7 +30,7 @@ public class FreelancerFragment extends Fragment  {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_oportunidade, container, false);
+        return inflater.inflate(R.layout.fragment_freelancer, container, false);
     }
 
 
@@ -70,7 +70,7 @@ public class FreelancerFragment extends Fragment  {
 
                     switch (id) {
                         case  R.layout.fragment_dashboard:
-                            nextFragment = new DashboardFreelancerFragment();
+                            nextFragment = new DashboardEmpresaFragment();
                             break;
                         case R.layout.fragment_favoritos:
                             nextFragment = new FavoritosFragment();
