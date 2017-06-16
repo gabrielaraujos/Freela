@@ -3,15 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFFFFF">
+    android:background="@color/laranja">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
         android:layout_margin="20dp"
-        android:text="@string/bt_voltar"
-        android:id="@+id/senha_bt_voltar" />
+        android:id="@+id/senha_bt_voltar"
+        android:background="@drawable/ic_voltar_branco"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -20,7 +20,7 @@
         android:layout_marginLeft="20dp"
         android:text="@string/lb_criar_senha"
         android:textSize="30dp"
-        android:textColor="#333333"
+        android:textColor="#FFFFFF"
         android:id="@+id/senha_lb_criar_senha"/>
 
     <EditText

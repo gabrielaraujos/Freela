@@ -6,9 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.freela.model.Papel;
 import com.freela.R;
-import com.freela.model.Usuario;
+import com.freela.model.Empresa;
+import com.freela.model.Freelancer;
+import com.freela.model.Papel;
 
 public class CriarContaActivity extends AppCompatActivity implements View.OnClickListener {
     private Button btEmpresa;
@@ -34,17 +35,18 @@ public class CriarContaActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View view) {
-        Usuario usuario = new Usuario();
 
         switch (view.getId()) {
             case R.id.conta_bt_empresa:
-                usuario.setPapel(Papel.EMPRESA);
-                proximo(usuario);
+                Empresa empresa = new Empresa();
+                empresa.setPapel(Papel.EMPRESA);
+                proximo(empresa);
                 break;
 
             case R.id.conta_bt_freelancer:
-                usuario.setPapel(Papel.FREELANCER);
-                proximo(usuario);
+                Freelancer freelancer =  new Freelancer();
+                freelancer.setPapel(Papel.FREELANCER);
+                proximo(freelancer);
                 break;
 
             case R.id.conta_bt_voltar:
@@ -53,9 +55,20 @@ public class CriarContaActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
-    private void proximo(Usuario usuario) {
+    private void proximo(Freelancer freelancer) {
         Intent intent = new Intent(this, CriarContaPt2Activity.class);
-        intent.putExtra("usuario", usuario);
+
+
+        intent.putExtra("freelancer", freelancer);
+
+        startActivity(intent);
+    }
+
+    private void proximo(Empresa empresa) {
+        Intent intent = new Intent(this, CriarContaPt2Activity.class);
+
+
+        intent.putExtra("empresa", empresa);
 
         startActivity(intent);
     }

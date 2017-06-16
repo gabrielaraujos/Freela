@@ -12,7 +12,7 @@
         android:orientation="vertical" >
 
         <ImageView
-            android:id="@+id/voltar"
+            android:id="@+id/perfil"
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_gravity="left"
@@ -21,6 +21,7 @@
 
 
         <TextView
+            android:id="@+id/perfil_nome"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="20dp"
@@ -28,11 +29,10 @@
             android:layout_marginTop="20dp"
             android:textColor="#333333"
             android:textSize="20dp"
-            android:text="Ziggy Stardust"
             />
 
         <TextView
-
+            android:id="@+id/perfil_email"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="20dp"
@@ -40,10 +40,10 @@
             android:layout_marginTop="20dp"
             android:textColor="#333333"
             android:textSize="20dp"
-            android:text="ziggy@email.com"
             />
 
         <TextView
+            android:id="@+id/perfil_profissao"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="20dp"
@@ -51,20 +51,19 @@
             android:layout_marginTop="20dp"
             android:textColor="#333333"
             android:textSize="20dp"
-            android:text="Desenvolvedor de Softwares"
             />
 
-        <TextView
-            android:id="@+id/dtFimTextVew"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp"
-            android:textColor="#333333"
-            android:textSize="20dp"
-            android:text="Fortaleza - CE, Brasil"
-            />
+        <!--<TextView-->
+            <!--android:id="@+id/"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:textColor="#333333"-->
+            <!--android:textSize="20dp"-->
+            <!--android:text="Fortaleza - CE, Brasil"-->
+            <!--/>-->
 
         <Button
             android:id="@+id/sair"

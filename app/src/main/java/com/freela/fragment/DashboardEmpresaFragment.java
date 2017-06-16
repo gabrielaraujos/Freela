@@ -25,7 +25,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.freela.R;
+import com.freela.SessionManager.SessionManager;
 import com.freela.adapter.MyAdapterFreelancer;
+import com.freela.handler.FreelaDBHandler;
 import com.freela.model.Freelancer;
 import com.freela.model.Usuario;
 
@@ -46,6 +48,8 @@ public class DashboardEmpresaFragment extends Fragment implements SearchView.OnQ
     private RecyclerView myRecyclerView;
     private MyAdapterFreelancer adapter;
     private SearchView mSearchView;
+    private SessionManager sessionManager;
+    private FreelaDBHandler db;
 
     private LinearLayoutManager linearLayoutManager;
     ArrayList<Freelancer> freelancers = new ArrayList<>();
@@ -55,42 +59,43 @@ public class DashboardEmpresaFragment extends Fragment implements SearchView.OnQ
     public DashboardEmpresaFragment() {}
 
     private ArrayList<Freelancer> setFreelancers() {
-        Freelancer fr1 =  new Freelancer(
-                "adalovelace@email.com",
-                "Ada Lovelance",
-                "lovelance123",
-                "Desenvolvedora",
-                R.drawable.lovelance,
-                0,
-                0
-        );
+//        Freelancer fr1 =  new Freelancer(0,
+//                "adalovelace@email.com",
+//                "Ada Lovelance",
+//                "lovelance123",
+//                "Desenvolvedora",
+//                R.drawable.lovelance,
+//                0,
+//                0
+//        );
+//
+//        freelancers.add(fr1);
+//
+//        Freelancer fr2 =  new Freelancer(0,
+//                "adalovelace@email.com",
+//                "Ada Lovelance teste",
+//                "lovelance123",
+//                "Desenvolvedora",
+//                R.drawable.lovelance,
+//                0,
+//                0
+//        );
+//
+//        freelancers.add(fr2);
+//
+//        Freelancer fr3 =  new Freelancer(0,
+//                "adalovelace@email.com",
+//                "Ada Lovelance",
+//                "lovelance123",
+//                "Desenvolvedora",
+//                R.drawable.lovelance,
+//                0,
+//                0
+//        );
+//
+//        freelancers.add(fr3);
 
-        freelancers.add(fr1);
-
-        Freelancer fr2 =  new Freelancer(
-                "adalovelace@email.com",
-                "Ada Lovelance teste",
-                "lovelance123",
-                "Desenvolvedora",
-                R.drawable.lovelance,
-                0,
-                0
-        );
-
-        freelancers.add(fr2);
-
-        Freelancer fr3 =  new Freelancer(
-                "adalovelace@email.com",
-                "Ada Lovelance",
-                "lovelance123",
-                "Desenvolvedora",
-                R.drawable.lovelance,
-                0,
-                0
-        );
-
-        freelancers.add(fr3);
-
+        freelancers = db.findFreelancers();
         return freelancers;
     }
 
@@ -98,13 +103,16 @@ public class DashboardEmpresaFragment extends Fragment implements SearchView.OnQ
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        freelancers.clear();
-        setFreelancers();
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
+
+        db = new FreelaDBHandler(getContext(), null, null, 1);
+        freelancers.clear();
+        setFreelancers();
 
         myRecyclerView = (RecyclerView) view.findViewById(R.id.cardViewRecentes);
         linearLayoutManager =  new LinearLayoutManager(getActivity());

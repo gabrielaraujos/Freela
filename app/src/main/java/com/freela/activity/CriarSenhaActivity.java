@@ -10,6 +10,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.freela.R;
+import com.freela.SessionManager.SessionManager;
+import com.freela.handler.FreelaDBHandler;
+import com.freela.model.Empresa;
+import com.freela.model.Freelancer;
 import com.freela.model.Usuario;
 
 /**
@@ -20,7 +24,9 @@ public class CriarSenhaActivity extends AppCompatActivity implements View.OnClic
     private EditText etSenha;
     private Button btVoltar;
     private Button btProximo;
-    private Usuario usuario;
+    private Freelancer freelancer;
+    private Empresa empresa;
+    private SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +43,13 @@ public class CriarSenhaActivity extends AppCompatActivity implements View.OnClic
 
         Intent intent = getIntent();
 
-        if(intent.hasExtra("usuario")) {
-            usuario = (Usuario) intent.getSerializableExtra("usuario");
-        } else {
-
-            //TODO erro
-
+        if(intent.hasExtra("freelancer")) {
+            freelancer = (Freelancer) intent.getSerializableExtra("freelancer");
+        } else  if(intent.hasExtra("empresa")) {
+            empresa = (Empresa) intent.getSerializableExtra("empresa");
         }
+
+        sessionManager = new SessionManager(this);
     }
 
     @Override
@@ -64,6 +70,23 @@ public class CriarSenhaActivity extends AppCompatActivity implements View.OnClic
 
        // usuario.setCredenciais(credenciais);
 
+        FreelaDBHandler db = new FreelaDBHandler(getApplicationContext(), null, null, 1);
+
+        if(freelancer  != null) {
+            freelancer.setSenha(etSenha.getText().toString());
+            freelancer.setId(db.addUsuario(freelancer));
+            freelancer.setImageResourceId(R.drawable.freelancer_icon);
+
+            db.addFreelancer(freelancer);
+            sessionManager.setUsuario(freelancer);
+        } else if(empresa != null) {
+            empresa.setSenha(etSenha.getText().toString());
+            empresa.setId(db.addUsuario(empresa));
+
+            db.addEmpresa(empresa);
+            sessionManager.setUsuario(empresa);
+        }
+
         Intent intent = new Intent(this, BottomNavActivity.class);
 
         //intent.putExtra("usuario", usuario);
@@ -81,7 +104,8 @@ public class CriarSenhaActivity extends AppCompatActivity implements View.OnClic
         toast.show();
     }
 
-    public void redirecionarDashboard(Usuario usuario) {
+    public void redirecionarDashboard
+            (Usuario usuario) {
         //TODO: passar parametros usuário
         Intent intent = new Intent(this, DashboardActivity.class);
         intent.putExtra("usuario", usuario);
@@ -98,7 +122,14 @@ public class CriarSenhaActivity extends AppCompatActivity implements View.OnClic
         @Override
         protected Usuario doInBackground(Usuario... usuarios) {
             //return AddHttp.addUsuario(usuarios[0]);
-            return new Usuario("gabriel@tvEmail.com", "Gabriel",  "123456");
+
+            Usuario usrAdd =  usuarios[0];
+
+            FreelaDBHandler db = new FreelaDBHandler(getApplicationContext(), null, null, 1);
+            usrAdd.setId(db.addUsuario(usrAdd));
+
+            return  usrAdd;
+//            return new Usuario("gabriel@tvEmail.com", "Gabriel",  "123456");
         }
 
         @Override

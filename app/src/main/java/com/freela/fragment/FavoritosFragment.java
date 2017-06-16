@@ -19,8 +19,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.freela.R;
+import com.freela.SessionManager.SessionManager;
 import com.freela.activity.MainActivity;
-import com.freela.model.Area;
+import com.freela.handler.FreelaDBHandler;
+import com.freela.model.Freelancer;
 import com.freela.model.Oportunidade;
 import com.freela.model.Usuario;
 
@@ -33,6 +35,10 @@ public class FavoritosFragment extends Fragment {
     private Usuario usuario;
     private Button btSair;
     private Button btAddOportuniade;
+    private SessionManager sessionManager;
+    private FreelaDBHandler db;
+    private Freelancer freelancer;
+
     //private SessionManager sessao;
     TextView tvNome;
     TextView tvEmail;
@@ -48,44 +54,46 @@ public class FavoritosFragment extends Fragment {
     public FavoritosFragment() {}
 
     private void setOportunidades() {
-        Oportunidade op1 =  new Oportunidade(
-                "Desenvolvedor de Softwares Sênior",
-                "Desenvolver sistemas em um projeto Mobile de curta duração na cidade se São Paulo. É requerido conhecimentos na linguagem Swift.",
-                new Date(),
-                new Date(),
-                R.drawable.apple_logo,
-                0,
-                0,
-                new Area(0L, "TI")
-        );
+//        Oportunidade op1 =  new Oportunidade(0,
+//                "Desenvolvedor de Softwares Sênior",
+//                "Desenvolver sistemas em um projeto Mobile de curta duração na cidade se São Paulo. É requerido conhecimentos na linguagem Swift.",
+//                new Date(),
+//                new Date(),
+//                R.drawable.apple_logo,
+//                0,
+//                0,
+//                new Area(0L, "TI")
+//        );
+//
+//        oportunidadesFavoritos.add(op1);
+//
+//        Oportunidade op2 =  new Oportunidade(0,
+//                "Analista de Software",
+//                "Analise de projetos de sistemas WEB voltados ao público em geral. É reqeurido dominio sobre diagrama UML.",
+//                new Date(),
+//                new Date(),
+//                R.drawable.google_logo,
+//                0,
+//                0,
+//                new Area(0L, "TI")
+//        );
 
-        oportunidadesFavoritos.add(op1);
-
-        Oportunidade op2 =  new Oportunidade(
-                "Analista de Software",
-                "Analise de projetos de sistemas WEB voltados ao público em geral. É reqeurido dominio sobre diagrama UML.",
-                new Date(),
-                new Date(),
-                R.drawable.google_logo,
-                0,
-                0,
-                new Area(0L, "TI")
-        );
-
-        oportunidadesFavoritos.add(op2);
-
+        freelancer = (Freelancer) sessionManager.getUsuario();
+        oportunidadesFavoritos = db.findFreelancerOportunidade(freelancer.getId());
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        oportunidadesFavoritos.clear();
-        setOportunidades();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_favoritos, container, false);
+
+        sessionManager = new SessionManager(getContext());
+        oportunidadesFavoritos.clear();
+        setOportunidades();
 
         myRecyclerViewFavoritos = (RecyclerView) view.findViewById(R.id.cardViewRecentes);
         myRecyclerViewFavoritos.setHasFixedSize(true);
@@ -204,10 +212,14 @@ public class FavoritosFragment extends Fragment {
                         ivLike.setTag(R.drawable.ic_liked);
                         ivLike.setImageResource(R.drawable.ic_liked);
 
+                        db.addFreelancerOportunidade(oportunidadesFavoritos.get(id).getId(), freelancer.getId());
+
                         Toast.makeText(getActivity(), tvTitle.getText() + " adicionado aos favoritos", Toast.LENGTH_SHORT).show();
                     } else {
                         ivLike.setTag(R.drawable.ic_like);
                         ivLike.setImageResource(R.drawable.ic_like);
+
+                        db.deleteFreelancerOportunidade(oportunidadesFavoritos.get(id).getId(), freelancer.getId());
 
                         Toast.makeText(getActivity(), tvTitle.getText() + " removido dos favoritos", Toast.LENGTH_SHORT).show();
                     }

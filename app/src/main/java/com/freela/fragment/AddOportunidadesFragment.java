@@ -4,6 +4,8 @@ import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +15,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.freela.R;
+import com.freela.SessionManager.SessionManager;
+import com.freela.handler.FreelaDBHandler;
+import com.freela.model.Oportunidade;
 import com.freela.model.Usuario;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 
 public class AddOportunidadesFragment extends Fragment implements View.OnClickListener {
@@ -24,11 +30,15 @@ public class AddOportunidadesFragment extends Fragment implements View.OnClickLi
     private EditText etDescricao;
     private TextView dtInicial;
     private TextView dtFinal;
+    private Date dtIni;
+    private Date dtFim;
     private Button btSalvar;
     private Button btVoltar;
     private Calendar calendar;
     private int dia, mes, ano;
     private Usuario usuario;
+    private SessionManager sessionManager;
+    private FreelaDBHandler db;
 
 
     public AddOportunidadesFragment() {}
@@ -57,6 +67,8 @@ public class AddOportunidadesFragment extends Fragment implements View.OnClickLi
         btVoltar = (Button)  view.findViewById(R.id.oportunidade_bt_voltar);
         btVoltar.setOnClickListener(this);
 
+        sessionManager = new SessionManager(getContext());
+
         calendar = Calendar.getInstance();
         ano = calendar.get(Calendar.YEAR);
         mes = calendar.get(Calendar.MONTH);
@@ -74,6 +86,7 @@ public class AddOportunidadesFragment extends Fragment implements View.OnClickLi
                             public void onDateSet(DatePicker view, int ano,
                                                   int mes, int dia) {
                                 dtInicial.setText(formatarData(ano, mes, dia));
+                                dtIni = toDate(ano, mes, dia);
                             }
                         }, ano, mes+1, dia);
                 dpd1.show();
@@ -87,12 +100,45 @@ public class AddOportunidadesFragment extends Fragment implements View.OnClickLi
                             public void onDateSet(DatePicker view, int ano,
                                                   int mes, int dia) {
                                 dtFinal.setText(formatarData(ano, mes, dia));
+                                dtIni = toDate(ano, mes, dia);
                             }
                         }, ano, mes+1, dia);
                 dpd2.show();
                 break;
+            case R.id.oportunidade_bt_salvar:
+                salvar();
+                break;
         }
 
+    }
+
+    private void salvar(){
+        Oportunidade oportunidade =  new Oportunidade();
+        oportunidade.setTitulo(etTitulo.getText().toString());
+        oportunidade.setDescricao(etDescricao.getText().toString());
+        oportunidade.setDtInicio(dtIni);
+        oportunidade.setDtFim(dtFim);
+
+        db = new FreelaDBHandler(getContext(), null, null, 1);
+        usuario = (Usuario) sessionManager.getUsuario();
+
+        db.addOportunidade(oportunidade, usuario.getId());
+
+        Fragment nextFragment = new OportunidadesEmpresaFragment();
+
+        FragmentManager fragmentManager =  getFragmentManager();
+
+        final FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.bottom_container, nextFragment).commit();
+    }
+
+    private Date toDate(int ano, int mes, int dia){
+        Calendar data = Calendar.getInstance();
+        data.set(Calendar.DAY_OF_MONTH, dia);
+        data.set(Calendar.MONTH, mes + 1);
+        data.set(Calendar.YEAR, ano);
+
+        return data.getTime();
     }
 
     private String formatarData(int ano, int mes, int dia) {

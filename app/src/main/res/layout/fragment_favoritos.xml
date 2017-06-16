@@ -9,6 +9,7 @@
     android:weightSum="1"
     tools:context="com.freela.fragment.FavoritosFragment">
 
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/cardViewRecentes"
         android:layout_width="match_parent"

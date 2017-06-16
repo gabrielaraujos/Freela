@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.freela.R;
+import com.freela.SessionManager.SessionManager;
 import com.freela.model.Freelancer;
 
 
@@ -24,6 +25,7 @@ public class FreelancerFragment extends Fragment  {
     private ImageView ivShare;
     private Freelancer freelancer;
     private ImageView voltar;
+    private SessionManager sessionManager;
 
 
 
@@ -34,7 +36,7 @@ public class FreelancerFragment extends Fragment  {
     }
 
 
-        @Override
+    @Override
     public void onViewCreated(View v, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(v, savedInstanceState);
 

@@ -10,8 +10,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.freela.R;
+import com.freela.SessionManager.SessionManager;
+import com.freela.handler.FreelaDBHandler;
 import com.freela.model.Credenciais;
-import com.freela.model.Papel;
 import com.freela.model.Usuario;
 
 //import com.freela.manager.SessionManager;
@@ -26,6 +27,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private Button btEntrar;
     private Button btVoltar;
     private Usuario usuario;
+    private SessionManager sessionManager;
+    private FreelaDBHandler db;
 
     private LoginTask loginTask;
     //private SessionManager sessao;
@@ -71,22 +74,35 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             if (login.trim().length() > 0 && pass.trim().length() > 0) {
 
-                Credenciais credenciais = new Credenciais(login, pass);
+//                Credenciais credenciais = new Credenciais(login, pass);
 
-                if (loginTask == null) {
+//                if (loginTask == null) {
+//
+//                  //  if (LoginHttp.temConexao(this)) {
+//
+//                        loginTask = new LoginTask();
+//                        loginTask.execute(credenciais);
+//
+//                  //  } else {
+//                  //      throw new Exception(getString(R.string.erro_conexao));
+//                  //  }
+//
+//                } else if (loginTask.getStatus() == AsyncTask.Status.RUNNING) {
+//                    //TODO: mostrar progress
+//                }
 
-                  //  if (LoginHttp.temConexao(this)) {
+                db = new FreelaDBHandler(this, null, null, 1);
+                usuario = db.findUsuario(login, pass);
 
-                        loginTask = new LoginTask();
-                        loginTask.execute(credenciais);
+                if(usuario != null) {
+                    sessionManager =  new SessionManager(this);
+                    sessionManager.setUsuario(usuario);
 
-                  //  } else {
-                  //      throw new Exception(getString(R.string.erro_conexao));
-                  //  }
-
-                } else if (loginTask.getStatus() == AsyncTask.Status.RUNNING) {
-                    //TODO: mostrar progress
+                    redirecionarDashboard();
+                } else {
+                    exibirMensagem(getString(R.string.erro_autenticacao));
                 }
+
 
             } else {
                 throw new Exception(getString(R.string.erro_campos_obringatorios));
@@ -110,9 +126,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         //startActivity(new Intent(this, DashboardActivity.class));
 
         Intent intent = new Intent(this, BottomNavActivity.class);
-
-        intent.putExtra("usuario", usuario);
-
         startActivity(intent);
 
     }
@@ -139,7 +152,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             //return LoginHttp.carregarUsuarioJson(credenciais[0]);
 
-            return new Usuario("gabriel@email.com", "Gabriel", Papel.EMPRESA,  "123456");
+            return new Usuario();
         }
 
         @Override

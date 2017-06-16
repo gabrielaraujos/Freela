@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 
 import com.freela.R;
+import com.freela.SessionManager.SessionManager;
 import com.freela.fragment.DashboardEmpresaFragment;
 import com.freela.fragment.DashboardFreelancerFragment;
 import com.freela.fragment.FavoritosFragment;
@@ -26,6 +27,7 @@ public class BottomNavActivity extends AppCompatActivity {
     private Fragment fragment;
     private FragmentManager fragmentManager;
     private Intent intent;
+    private SessionManager sessionManager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,7 +43,9 @@ public class BottomNavActivity extends AppCompatActivity {
         //insere a ToolBar como ActionBar (o estilo deve estar como .NoActionBar, veja o arquivo values/styles).
         setSupportActionBar(toolbar);
 
-       intent = getIntent();
+        sessionManager= new SessionManager(this);
+
+     //  intent = getIntent();
 
         bottomNavigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         bottomNavigation.inflateMenu(R.menu.bottom_nav_items);
@@ -66,8 +70,9 @@ public class BottomNavActivity extends AppCompatActivity {
     public void selectItem(int id) {
         switch (id) {
             case R.id.menu_home:
-                if (intent.hasExtra("usuario")) {
-                    Usuario usuario = (Usuario) intent.getSerializableExtra("usuario");
+//                if (intent.hasExtra("usuario")) {
+//                    Usuario usuario = (Usuario) intent.getSerializableExtra("usuario");
+                    Usuario usuario =  (Usuario) sessionManager.getUsuario();
 
                     if(usuario.getPapel().equals(Papel.FREELANCER)) {
                         fragment = new DashboardFreelancerFragment();
@@ -75,10 +80,10 @@ public class BottomNavActivity extends AppCompatActivity {
                         fragment = new DashboardEmpresaFragment();
                     }
 
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable("usuario", usuario);
-                    fragment.setArguments(bundle);
-                }
+//                    Bundle bundle = new Bundle();
+//                    bundle.putSerializable("usuario", usuario);
+//                    fragment.setArguments(bundle);
+//                }
                 break;
             case R.id.menu_oportunidade:
                 fragment = new FavoritosFragment();

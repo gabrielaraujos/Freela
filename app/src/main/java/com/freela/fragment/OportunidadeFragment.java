@@ -82,6 +82,9 @@ public class OportunidadeFragment extends Fragment  {
                         case R.layout.fragment_favoritos:
                             nextFragment = new FavoritosFragment();
                             break;
+                        case R.layout.fragment_oportunidades:
+                            nextFragment = new OportunidadesEmpresaFragment();
+                            break;
                     }
 
                     //                    Bundle bundle = new Bundle();

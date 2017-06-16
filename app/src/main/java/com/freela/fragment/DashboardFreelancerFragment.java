@@ -25,13 +25,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.freela.R;
+import com.freela.SessionManager.SessionManager;
 import com.freela.adapter.MyAdapterOportunidade;
-import com.freela.model.Area;
+import com.freela.handler.FreelaDBHandler;
+import com.freela.model.Freelancer;
 import com.freela.model.Oportunidade;
 import com.freela.model.Usuario;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 
 public class DashboardFreelancerFragment extends Fragment implements SearchView.OnQueryTextListener {
@@ -52,6 +53,10 @@ public class DashboardFreelancerFragment extends Fragment implements SearchView.
     private LinearLayoutManager linearLayoutManager;
     private  String tipo;
 
+    private FreelaDBHandler db;
+    private SessionManager sessionManager;
+    private Freelancer freelancer;
+
 
 //    private RecyclerView myRecyclerViewDestaque;
 //    private RecyclerView myRecyclerViewSugestoes;
@@ -64,44 +69,46 @@ public class DashboardFreelancerFragment extends Fragment implements SearchView.
     public DashboardFreelancerFragment() {}
 
     private ArrayList<Oportunidade> setOportunidades() {
-        Oportunidade op1 =  new Oportunidade(
-                "Desenvolvedor de Softwares Sênior",
-                "Desenvolver sistemas em um projeto Mobile de curta duração na cidade se São Paulo. É requerido conhecimentos na linguagem Swift.",
-                new Date(),
-                new Date(),
-                R.drawable.apple_logo_2,
-                0,
-                0,
-                new Area(0L, "TI")
-                );
+//               Oportunidade op1 =  new Oportunidade(
+//                "Desenvolvedor de Softwares Sênior",
+//                "Desenvolver sistemas em um projeto Mobile de curta duração na cidade se São Paulo. É requerido conhecimentos na linguagem Swift.",
+//                new Date(),
+//                new Date(),
+//                R.drawable.apple_logo_2,
+//                0,
+//                0,
+//                new Area(0L, "TI")
+//                );
+//
+//        oportunidadesRecentes.add(op1);
+//
+//        Oportunidade op2 =  new Oportunidade(
+//                "Analista de Sistemas",
+//                "Analise de projetos de sistemas WEB voltados ao público em geral. É reqeurido dominio sobre diagrama UML.",
+//                new Date(),
+//                new Date(),
+//                R.drawable.google_logo,
+//                0,
+//                0,
+//                new Area(0L, "TI")
+//        );
+//
+//        oportunidadesRecentes.add(op2);
+//
+//        Oportunidade op3 =  new Oportunidade(
+//                "Designer de jogos",
+//                "Projetar layouts para projetos de Jogos para PC.",
+//                new Date(),
+//                new Date(),
+//                R.drawable.microsoft_logo,
+//                0,
+//                0,
+//                new Area(0L, "TI")
+//        );
+//
+//        oportunidadesRecentes.add(op3);
 
-        oportunidadesRecentes.add(op1);
-
-        Oportunidade op2 =  new Oportunidade(
-                "Analista de Sistemas",
-                "Analise de projetos de sistemas WEB voltados ao público em geral. É reqeurido dominio sobre diagrama UML.",
-                new Date(),
-                new Date(),
-                R.drawable.google_logo,
-                0,
-                0,
-                new Area(0L, "TI")
-        );
-
-        oportunidadesRecentes.add(op2);
-
-        Oportunidade op3 =  new Oportunidade(
-                "Designer de jogos",
-                "Projetar layouts para projetos de Jogos para PC.",
-                new Date(),
-                new Date(),
-                R.drawable.microsoft_logo,
-                0,
-                0,
-                new Area(0L, "TI")
-        );
-
-        oportunidadesRecentes.add(op3);
+        oportunidadesRecentes =  db.findOportunidades();
 
         return oportunidadesRecentes;
 //        oportunidadesDestaque.addAll(freelancers);
@@ -112,20 +119,25 @@ public class DashboardFreelancerFragment extends Fragment implements SearchView.
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if(getArguments() != null) {
-            this.tipo = getArguments().getString("tipo");
-        }
+//
+//        if(getArguments() != null) {
+//            this.tipo = getArguments().getString("tipo");
+//        }
 
         setHasOptionsMenu(true);
-
-        oportunidadesRecentes.clear();
-        setOportunidades();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
+
+        sessionManager = new SessionManager(getContext());
+        freelancer = (Freelancer) sessionManager.getUsuario();
+
+        db = new FreelaDBHandler(getContext() , null, null, 1);
+
+        oportunidadesRecentes.clear();
+        setOportunidades();
 
         myRecyclerViewRecentes = (RecyclerView) view.findViewById(R.id.cardViewRecentes);
         linearLayoutManager =  new LinearLayoutManager(getActivity());
@@ -236,10 +248,14 @@ public class DashboardFreelancerFragment extends Fragment implements SearchView.
                     ivLike.setTag(R.drawable.ic_liked);
                     ivLike.setImageResource(R.drawable.ic_liked);
 
+                    db.addFreelancerOportunidade(oportunidadesRecentes.get(idx).getId(), freelancer.getId());
+
                     Toast.makeText(getActivity(), tvTitle + " adicionado aos favoritos", Toast.LENGTH_SHORT).show();
                 } else {
                     ivLike.setTag(R.drawable.ic_like);
                     ivLike.setImageResource(R.drawable.ic_like);
+
+                    db.deleteFreelancerOportunidade(oportunidadesRecentes.get(idx).getId(), freelancer.getId());
 
                     Toast.makeText(getActivity(), tvTitle + " removido dos favoritos", Toast.LENGTH_SHORT).show();
                 }
