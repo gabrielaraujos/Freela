@@ -7,7 +7,7 @@ import java.util.List;
  * Created by Gabriel on 2016-10-27.
  */
 public class Empresa extends Usuario implements Serializable {
-   private List<Oportunidade> oportunidades;
+    private List<Oportunidade> oportunidades;
 
     public List<Oportunidade> getOportunidades() {
         return oportunidades;

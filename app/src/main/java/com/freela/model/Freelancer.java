@@ -14,8 +14,8 @@ public class Freelancer extends Usuario implements Serializable  {
     public Freelancer() {
     }
 
-    public Freelancer(String email, String nome, String senha, String profissao, int imageResourceId, int isFav, int isTurned) {
-        super(email, nome, senha);
+    public Freelancer(int id, String email, String nome, String senha, String profissao, int imageResourceId, int isFav, int isTurned) {
+        super(id, email, nome, senha);
         this.profissao = profissao;
         ImageResourceId = imageResourceId;
         this.isFav = isFav;

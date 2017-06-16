@@ -9,6 +9,7 @@ import java.io.Serializable;
  */
 
 public class Usuario implements Serializable {
+    private int id;
     private String email;
     private String nome;
     private Papel papel;
@@ -16,16 +17,26 @@ public class Usuario implements Serializable {
 
     public Usuario() {}
 
-    public  Usuario(String email, String nome, String senha) {
+    public Usuario(int id, String email, String nome, String senha) {
+        this.id = id;
         this.email = email;
         this.nome = nome;
         this.senha = senha;
     }
-    public  Usuario(String email, String nome, Papel papel, String senha) {
+    public Usuario(int id, String email, String nome, Papel papel, String senha) {
+        this.id = id;
         this.email = email;
         this.nome = nome;
         this.papel = papel;
         this.senha = senha;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getEmail() {
@@ -42,6 +53,14 @@ public class Usuario implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public Papel getPapel() {

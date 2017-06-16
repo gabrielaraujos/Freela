@@ -8,7 +8,7 @@ import java.util.Date;
  */
 
 public class Oportunidade implements Serializable {
-
+    private int id;
     private String titulo;
     private String descricao;
     private Date dtInicio;
@@ -22,7 +22,8 @@ public class Oportunidade implements Serializable {
     public Oportunidade() {
     }
 
-    public Oportunidade(String titulo, String descricao, Date dtInicio, Date dtFim, int imageResourceId, int isFav, int isTurned, Area area) {
+    public Oportunidade(int id, String titulo, String descricao, Date dtInicio, Date dtFim, int imageResourceId, int isFav, int isTurned, Area area) {
+        this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
         this.dtInicio = dtInicio;
@@ -31,6 +32,13 @@ public class Oportunidade implements Serializable {
         this.isFav = isFav;
         this.isTurned = isTurned;
         this.area = area;
+    }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitulo() {
